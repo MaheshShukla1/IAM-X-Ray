@@ -8,6 +8,9 @@
 
 IAM X-Ray is an open-source Python tool for visualizing, analyzing, and securing AWS Identity and Access Management (IAM) configurations. Built with Streamlit for an interactive UI, it fetches IAM data, builds relationship graphs, detects risks, and provides actionable insights—all in a secure, encrypted manner.
 
+See your AWS permissions like an X-Ray.
+Visualize who can touch what — before attackers do.
+
 ## Purpose and Use-Cases
 
 IAM X-Ray helps AWS users audit and optimize IAM setups to prevent security risks like over-privileged roles or unused policies. Key use-cases include:
