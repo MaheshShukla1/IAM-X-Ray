@@ -1,123 +1,213 @@
-# IAM X-Ray: AWS IAM Visualizer
+# 🔍 **IAM X-Ray - AWS IAM VISUALIZER**
 
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/iam-x-ray?style=social)](https://github.com/yourusername/iam-x-ray/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/yourusername/iam-x-ray?style=social)](https://github.com/yourusername/iam-x-ray/network/members)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Run-red?logo=streamlit)](https://streamlit.io/)
+![GitHub release](https://img.shields.io/github/v/release/<user>/<repo>)
+![GitHub stars](https://img.shields.io/github/stars/<user>/<repo>)
+![GitHub issues](https://img.shields.io/github/issues/<user>/<repo>)
+![Docker Image](https://img.shields.io/badge/Docker-ready-blue)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-IAM X-Ray is an open-source Python tool for visualizing, analyzing, and securing AWS Identity and Access Management (IAM) configurations. Built with Streamlit for an interactive UI, it fetches IAM data, builds relationship graphs, detects risks, and provides actionable insights—all in a secure, encrypted manner.
+**Visual AWS IAM Access Map — Modern, Fast, Open Source**
 
-See your AWS permissions like an X-Ray.
-Visualize who can touch what — before attackers do.
+IAM X-Ray converts your AWS IAM environment into a **visual knowledge graph**, helping you instantly understand:
 
-## Purpose and Use-Cases
+- **Which user/role can do what**
+    
+- **Which policies are risky**
+    
+- **Which policies changed recently**
+    
+- **Who can access critical services (S3, IAM, EC2, Lambda)**
+    
+- **Privilege escalation relationships**
+    
+- **Risky paths & misconfigurations**
+    
 
-IAM X-Ray helps AWS users audit and optimize IAM setups to prevent security risks like over-privileged roles or unused policies. Key use-cases include:
-
-- **Security Audits**: Identify risky actions (e.g., wildcard permissions) and compute risk scores.
-- **Compliance Checks**: Track changes with diffs, monitor service last used, and purge old snapshots.
-- **Visualization**: Interactive graphs of users, groups, roles, and policies for better understanding.
-- **DevOps Workflows**: Multi-region fetching, email alerts for high-impact changes, and demo mode for quick testing.
-- **Education**: Learn AWS IAM through visual demos without real credentials.
-
-Whether you're a cloud security engineer spotting vulnerabilities or a DevOps team optimizing access, IAM X-Ray makes IAM management intuitive and proactive.
-
-## Features and Functionality
-
-- **IAM Data Fetching**: Pull users, groups, roles, policies via Boto3; supports multi-region and scheduled runs.
-- **Interactive Graph Visualization**: NetworkX and PyVis-powered graphs with highlighting, export (SVG/PNG), and clustering.
-- **Risk Analysis**: Scores policies for risks; detects unused actions using Access Advisor.
-- **Secure Storage**: Encrypted snapshots (Fernet); authentication with bcrypt and session expiry.
-- **Cleanup and Alerts**: Background purging of old data; SMTP email for high-risk diffs.
-- **UI/UX**: Modern Streamlit interface with tabs (Graph, Details, Summary), search, and downloads (JSON/CSV).
-- **Demo Mode**: Pre-loaded sample data for instant exploration.
-- **Extensibility**: Modular core (e.g., add AI policy recommendations via OpenAI key).
-
-## Installation and Setup Instructions
-
-### Prerequisites
-- Python 3.8+
-- Git
-
-### Quick Start
-1. Clone the repository:
-```
-git clone https://github.com/yourusername/iam-x-ray.git
-cd iam-x-ray
-```
-2. Run setup script (creates venv, installs deps, generates .env and demo data):
-```python
-python setup.py
-```
-
-
-3. Activate virtual environment:
-- Unix/Linux/Mac: `source venv/bin/activate`
-- Windows: `venv\Scripts\activate`
-
-4. Run the app:
-```
-streamlit run app/main.py
-```
-- Demo mode starts automatically. For full mode, edit `.env` with AWS credentials (AWS_ACCESS_KEY_ID, etc.).
-
-### Docker Option
-docker-compose up
-
-
-Access at http://localhost:8501.
-
-### Configuration
-Edit `.env` for custom settings (e.g., AWS_REGION, KEEP_DAYS for snapshot retention).
-
-## Usage Examples
-
-### Demo Mode
-Launch and explore sample IAM graph without AWS creds.
-
-### Full Fetch and Analysis
-1. Add AWS creds to `.env`.
-2. Click "Fetch IAM Data" in sidebar.
-3. View graph (larger, zoomable for readability), details, and summaries.
-
-**Screenshot: Interactive IAM Graph**
-![IAM Graph Screenshot](assets/graph-screenshot.png)  
-*(Large, readable visualization with node highlighting.)*
-
-**Screenshot: Risk Summary Tab**
-![Risk Summary](assets/summary-screenshot.png)  
-*(Metrics, unused actions warnings.)*
-
-### CLI Mode
-```python
-python core/fetch_iam.py --multi_region --encrypt
-```
-
-Outputs fetched counts, diffs, and impact scores.
-
-## Beta Release Notes
-
-**Version 0.1.0-beta** (October 2025):
-- Initial release with core fetching, graphing, and security features.
-- Known Limitations: Large IAM sets (>200 nodes) may require clustering tweaks; no mobile optimization yet.
-- Feedback: Open issues for bugs or features. Contributions welcome!
-- Roadmap: Add AI-powered policy recommendations, more visualizations (e.g., heatmaps), and CI/CD pipelines.
-
-## Contributing
-
-1. Fork the repo.
-2. Create a branch: `git checkout -b feature/xyz`.
-3. Commit changes: `git commit -m 'Add XYZ'`.
-4. Push: `git push origin feature/xyz`.
-5. Open a Pull Request.
-
-Follow PEP8; run `black .` and `pytest` before PR.
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
+Built for **security teams, DevOps, cloud engineers, auditors**, and learners.
 
 ---
 
-For questions, star the repo or open an issue. Built with ❤️ for AWS security!
+## 🚀 Features
+
+### **🔐 Secure Local Access**
+
+- Local password protection
+    
+- Session timeout + lockout
+    
+- “Remember me” 24h token
+    
+- Password reset + full app reset
+    
+
+### **⚡ Fast IAM Snapshot Fetch**
+
+- Fast mode (use cache)
+    
+- Force mode (fresh fetch)
+    
+- Multi-region ready
+    
+- Support for:
+    
+    - AWS Profile
+        
+    - Env Keys
+        
+    - Demo Mode (no AWS required)
+        
+
+### **🕸 IAM Graph Visualizer**
+
+- PyVis powered interactive graph
+    
+- Highlights risky entities
+    
+- Shows relationships clearly
+    
+- Auto-trims oversized graphs
+    
+- Empty-state suggestions
+    
+
+### **🔍 Smart Search**
+
+- Search policies, actions, users, roles
+    
+- “Who can perform this action?”
+    
+- Fuzzy matching suggestions
+    
+- Entity details & findings view
+    
+
+### **📦 Snapshots**
+
+- JSON or Encrypted `.json.enc` snapshots
+    
+- Diff engine
+    
+- Impact score
+    
+- Downloadable graph JSON
+    
+- Export risky policies CSV
+    
+
+### **🧹 Maintenance Tools**
+
+- Purge old snapshots (with backups)
+    
+- Full app reset
+    
+- Preflight diagnostics
+    
+- Cross-platform setup scripts
+    
+- Docker-ready
+    
+
+---
+
+# 🛠 Quick Start
+
+## **Option 1 — One-Click Installer**
+
+### **Linux / macOS**
+
+```bash
+chmod +x setup.sh
+./setup.sh
+./start.sh
+```
+
+### **Windows (PowerShell)**
+
+```arduino
+.\setup.ps1
+.\start.ps1
+```
+
+## **Option 3 — Docker**
+
+```css
+docker-compose up --build
+```
+
+Then open:
+
+👉 [http://localhost:8501](http://localhost:8501)
+
+
+# 👁 Demo Mode (No AWS Required)
+
+Demo snapshot auto-loads from:
+
+```bash
+data/sample_snapshot.json
+```
+
+If missing → auto-created.
+
+
+# 🏗 Folder Structure
+
+
+```powershell
+iam-xray/
+│
+├── app/
+│   └── main.py               # Streamlit app
+│
+├── core/
+│   ├── config.py             # ENV config + defaults
+│   ├── fetch_iam.py          # IAM fetch engine
+│   ├── secure_store.py       # Encryption / decryption
+│   ├── graph_builder.py      # Build visualization graph
+│   ├── cleanup.py            # Purge + full reset logic
+│
+├── data/
+│   ├── sample_snapshot.json  # Demo snapshot (tracked)
+│   └── ...runtime files...   # Ignored (snapshots/auth)
+│
+├── setup.sh
+├── setup.ps1
+├── start.sh
+├── start.ps1
+├── install.sh
+│
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── .gitignore
+├── .dockerignore
+└── README.md
+```
+
+# 🧪 Preflight Diagnostics
+
+Before login, IAM X-Ray checks:
+
+- Python version
+    
+- Data directory permission
+    
+- Encryption key
+    
+- Demo snapshot
+    
+- Environment validity
+    
+
+---
+
+# 🔐 Security Notes
+
+- Local password stored as salted SHA-256
+    
+- Encrypted snapshots via Fernet
+    
+- All sensitive files ignored via `.gitignore`
+    
+- Docker isolates runtime data inside `/data`
