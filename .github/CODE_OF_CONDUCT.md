@@ -1,4 +1,4 @@
-```markdown
+
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
@@ -71,5 +71,3 @@ version 2.1, available at
 [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1]
 
 [homepage]: https://www.contributor-covenant.org
-
----
