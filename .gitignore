@@ -10,7 +10,9 @@ __pycache__/
 *.egg-info/
 .eggs/
 
+# -----------------------------
 # Logs
+# -----------------------------
 *.log
 
 # -----------------------------
@@ -22,12 +24,11 @@ env/
 ENV/
 
 # -----------------------------
-# Data (runtime), keep only demo sample
+# Data (runtime) - keep only sample/demo files
 # -----------------------------
 data/*
 !data/sample_snapshot.json
 !data/.gitkeep
-
 reset_backups/
 snapshots/
 
@@ -48,6 +49,7 @@ iamxray_remember.json
 
 # -----------------------------
 # Docker
+# -----------------------------
 Dockerfile~
 *.pid
 *.sock
@@ -65,7 +67,7 @@ Thumbs.db
 *.tmp
 
 # -----------------------------
-# Testing
+# Testing / Coverage
 # -----------------------------
 .pytest_cache/
 cover/
