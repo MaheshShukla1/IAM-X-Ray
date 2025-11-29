@@ -1,7 +1,33 @@
+Non-Commercial Software License v1.0
 Copyright (C) 2025 Mahesh Shukla
 
-Permission is hereby granted to any person obtaining a copy of this software for NON-COMMERCIAL purposes, including educational, personal, and internal business uses.
+1. Definitions
+   a. "Software" refers to the IAM-X-Ray project, including source code, binaries, assets, and documentation.
+   b. "Non-Commercial Use" means use for personal, educational, research, or internal business purposes, with no revenue generation.
+   c. "Commercial Use" means offering the Software as a service (SaaS), integrating it into paid products, or distributing for profit.
 
-Use of this software for COMMERCIAL purposes — including offering this software as a service (SaaS), integrating into paid products, or distributing for profit — is NOT allowed without explicit, written permission and a commercial license.
+2. License Grant
+   Subject to the terms of this License, the Licensor grants the Licensee a worldwide, non-exclusive, non-transferable license to use, copy, modify, and distribute the Software **for Non-Commercial Use only**.
 
-For commercial/SaaS licensing, contact: maheshcloudsec1@gmail.com
+3. Restrictions
+   a. The Software may **not** be used for Commercial Use without explicit written permission from the Licensor.
+   b. The Software may not be sublicensed or sold.
+   c. Reverse engineering or redistribution for commercial purposes is prohibited.
+
+4. Attribution
+   You must include a visible notice of the License and copyright in all copies or substantial portions of the Software.
+
+5. Commercial Licensing
+   For Commercial Use or SaaS deployment, you must obtain a **written commercial license** from the Licensor. Contact: maheshcloudsec1@gmail.com
+
+6. Disclaimer of Warranty
+   The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
+
+7. Limitation of Liability
+   In no event shall the Licensor be liable for any claim, damages, or other liability arising from the use of the Software, even if advised of the possibility of such damages.
+
+8. Termination
+   This License automatically terminates if you violate any of its terms. Upon termination, you must destroy all copies of the Software in your possession.
+
+9. Governing Law
+   This License shall be governed by and construed in accordance with the laws of India.
