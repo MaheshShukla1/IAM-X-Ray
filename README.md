@@ -194,41 +194,10 @@ We love contributions! IAM X-Ray is open-source—help make IAM safer.
 
 ## 📄 License
 
-This project is licensed under the GNU Affero General Public License v3.0 - see the LICENSE file for details.
-
-```text
-GNU AFFERO GENERAL PUBLIC LICENSE
-Version 3, 19 November 2007
-
-Copyright (C) 2025 Mahesh Shukla <your-email@example.com>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-### Preamble
-
-The GNU Affero General Public License is a free, copyleft license for
-software and other kinds of works, specifically designed to ensure
-cooperation with the community in the case of network server software.
-
-The licenses for most software and other practical works are designed
-to take away your freedom to share and change the works.  By contrast,
-our General Public Licenses are intended to guarantee your freedom to
-share and change all versions of a program--to make sure it remains free
-software for all its users.
-
-When we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have
 ```
+This project is licensed under a Custom Non-Commercial Open Source License (see LICENSE_NONCOMMERCIAL.md).
+**Commercial use, including SaaS or paid products, is prohibited without written permission.**
+For licensing queries, contact: maheshcloudsec1@gmail.com
+```
+
 
