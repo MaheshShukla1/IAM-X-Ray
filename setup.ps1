@@ -1,118 +1,122 @@
-# setup.ps1 - Works on Windows PowerShell 5.1 and PowerShell 7+
+# setup.ps1 - Windows Installer for IAM-X-RAY
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-Write-Host "IAM X-Ray Setup Starting..." -ForegroundColor Cyan
+Write-Host "=== IAM-X-RAY Windows setup ==="
 
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
-Push-Location $root
+# Locate Python
+$pythonCmd = $null
 
-# ------------------------------
-# 1. Python check
-# ------------------------------
-if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
-    Write-Host "Python NOT FOUND. Please install Python 3.9+ from python.org and ensure it's in PATH." -ForegroundColor Red
-    Exit 1
+$py3 = Get-Command python3 -ErrorAction SilentlyContinue
+if ($py3) { $pythonCmd = $py3.Path }
+
+if (-not $pythonCmd) {
+    $py = Get-Command python -ErrorAction SilentlyContinue
+    if ($py) { $pythonCmd = $py.Path }
 }
 
-# ------------------------------
-# 2. Create Virtual Environment
-# ------------------------------
+if (-not $pythonCmd) {
+    Write-Host "Python 3.9+ not found in PATH."
+    exit 1
+}
+
+# Check Python version
+$versionCheck = & $pythonCmd -c 'import sys; print("{}.{}".format(sys.version_info.major, sys.version_info.minor))'
+
+if ([version]$versionCheck -lt [version]"3.9") {
+    Write-Host "Python 3.9+ required. Found: $versionCheck"
+    exit 1
+}
+
+Write-Host "Python detected: $versionCheck"
+
+# Create virtualenv
 if (-not (Test-Path ".venv")) {
-    Write-Host "Creating virtual environment..."
-    python -m venv .venv
-    Write-Host ".venv created."
-} else {
-    Write-Host ".venv already exists — skipping"
+    Write-Host "Creating virtual environment (.venv)..."
+    & $pythonCmd -m venv .venv
 }
 
 # Activate venv
-& .\.venv\Scripts\Activate.ps1
-
-# ------------------------------
-# 3. Install Dependencies
-# ------------------------------
-Write-Host "Installing dependencies..."
-python -m pip install --upgrade pip | Out-Null
-if (Test-Path "requirements.txt") {
-    pip install -r requirements.txt
-    Write-Host "Dependencies installed."
-} else {
-    Write-Host "requirements.txt missing!" -ForegroundColor Red
-    Exit 1
+$activate = ".venv\Scripts\Activate.ps1"
+if (Test-Path $activate) {
+    Write-Host "Activating virtual environment..."
+    . $activate
 }
 
-# ------------------------------
-# 4. Create .env file if missing
-# ------------------------------
-$envFile = ".env"
-if (-not (Test-Path $envFile)) {
-    Write-Host "Generating encryption key..."
-    $key = python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
-    
-    $content = @"
-IAM_XRAY_FERNET_KEY=$key
+# Install dependencies
+Write-Host "Installing dependencies..."
+try {
+    python -m pip install --upgrade pip
+    if (Test-Path "requirements.txt") {
+        python -m pip install -r requirements.txt
+    }
+} catch {
+    Write-Host "Dependency installation failed."
+}
+
+# Create .env
+if (-not (Test-Path ".env")) {
+    Write-Host "Generating Fernet key..."
+    try {
+        $fernet = & $pythonCmd -c 'from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())'
+    } catch {
+        Write-Host "cryptography not installed."
+        exit 1
+    }
+
+    $envContent = @"
+IAM_XRAY_FERNET_KEY=$fernet
 AWS_REGION=us-east-1
 CACHE_TTL=3600
 KEEP_DAYS=30
 "@
 
-    $content | Out-File -FilePath $envFile -Encoding UTF8
-    Write-Host ".env created with secure key."
-} else {
-    Write-Host ".env already exists — skipping"
+    Set-Content ".env" $envContent -Encoding UTF8
+    Write-Host ".env created"
 }
 
-# ------------------------------
-# 5. Ensure demo snapshot exists
-# ------------------------------
-Write-Host "Ensuring demo snapshot..."
-python -c "
-import os, json, sys
-os.makedirs('data', exist_ok=True)
-demo_path = 'data/sample_snapshot.json'
+# Create demo snapshot
+Write-Host "Creating demo snapshot..."
 
-if not os.path.exists(demo_path):
+$pythonSnippet = @'
+import os, json
+os.makedirs("data", exist_ok=True)
+demo_path = "data/sample_snapshot.json"
+if os.path.exists(demo_path):
+    print("Demo snapshot already exists")
+else:
     demo = {
-        '_meta': {
-            'fetched_at': 'demo',
-            'fast_mode': True,
-            'counts': {'users': 3, 'roles': 1, 'policies': 3}
-        },
-        'users': [
-            {'UserName': 'demo-user', 'Arn': 'arn:aws:iam::123456:user/demo', 'IsRisky': False,
-             'AttachedPolicies': [{'PolicyName': 'DemoPolicy'}]},
-            {'UserName': 'alice', 'Arn': 'arn:aws:iam::123456:user/alice', 'IsRisky': True,
-             'AttachedPolicies': [{'PolicyName': 'AdminPolicy'}]},
-            {'UserName': 'bob', 'Arn': 'arn:aws:iam::123456:user/bob', 'IsRisky': False,
-             'AttachedPolicies': [{'PolicyName': 'ReadOnlyPolicy'}]}
+        "_meta": {"fetched_at": "demo", "fast_mode": True, "counts": {"users": 3, "roles": 1, "policies": 3}},
+        "users": [
+            {"UserName": "alice", "Arn": "arn:aws:iam::123456:user/alice", "IsRisky": True, "AttachedPolicies":[{"PolicyName": "AdminPolicy"}]},
+            {"UserName": "bob", "Arn": "arn:aws:iam::123456:user/bob", "IsRisky": False, "AttachedPolicies":[{"PolicyName": "ReadOnlyPolicy"}]}
         ],
-        'roles': [
-            {'RoleName': 'DemoRole', 'AttachedPolicies': [{'PolicyName': 'DemoPolicy'}],
-             'AssumePolicyRisk': False}
+        "roles": [
+            {"RoleName": "DemoRole", "AttachedPolicies":[{"PolicyName": "DemoPolicy"}], "AssumePolicyRisk": False}
         ],
-        'groups': [],
-        'policies': [
-            {'PolicyName': 'DemoPolicy', 'RiskScore': 1, 'IsRisky': False,
-             'Arn': 'arn:aws:iam::123456:policy/DemoPolicy'},
-            {'PolicyName': 'AdminPolicy', 'RiskScore': 9, 'IsRisky': True,
-             'Arn': 'arn:aws:iam::123456:policy/AdminPolicy'},
-            {'PolicyName': 'ReadOnlyPolicy', 'RiskScore': 1, 'IsRisky': False,
-             'Arn': 'arn:aws:iam::123456:policy/ReadOnlyPolicy'}
+        "groups": [],
+        "policies": [
+            {"PolicyName": "AdminPolicy", "RiskScore":9, "IsRisky":True, "Arn":"arn:aws:iam::123456:policy/AdminPolicy"},
+            {"PolicyName": "ReadOnlyPolicy", "RiskScore":1, "IsRisky":False, "Arn":"arn:aws:iam::123456:policy/ReadOnlyPolicy"}
         ]
     }
-    with open(demo_path, 'w', encoding='utf-8') as f:
+    with open(demo_path, "w", encoding="utf-8") as f:
         json.dump(demo, f, indent=2)
-    print('Demo snapshot created:', demo_path)
-else:
-    print('Demo snapshot already exists.')
-"
+    print("Demo snapshot created")
+'@
 
-Write-Host "Setup complete!" -ForegroundColor Green
-Write-Host ""
-Write-Host "To start the app:" -ForegroundColor Yellow
-Write-Host "   .\start.ps1" -ForegroundColor White
-Write-Host ""
-Write-Host "First time? Just run .\start.ps1 and select 'Demo' mode!" -ForegroundColor Cyan
+$tmp = Join-Path $env:TEMP ("iamxray_demo_{0}.py" -f (New-Guid))
+Set-Content -Path $tmp -Value $pythonSnippet -Encoding UTF8
 
-Pop-Location
+try {
+    & $pythonCmd $tmp
+} finally {
+    Remove-Item $tmp -Force -ErrorAction SilentlyContinue
+}
+
+Write-Host ""
+Write-Host "===================================="
+Write-Host "Setup Complete"
+Write-Host "Run with: .\start.ps1"
+Write-Host "===================================="
+Write-Host ""
