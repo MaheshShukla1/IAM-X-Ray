@@ -1,24 +1,23 @@
-# 📝 **IAM-X-Ray Community License (Source-Available, Non-Commercial)**
+# **IAM-X-Ray Community License (Source-Available, Non-Commercial)**
 
-**Version 1.0 — 2025**  
-**Copyright © 2025 Mahesh Shukla. All Rights Reserved.**
-
----
-
-## **1. Purpose**
-
-IAM-X-Ray Community Edition is provided for **learning, research, testing, contribution, collaboration, and security experimentation** —  
-**but strictly NOT for commercial use**.
-
-This license encourages community involvement while preserving **full future commercial, SaaS, and enterprise rights** for the Licensor.
+Version 1.0 — 2025  
+Copyright © 2025 Mahesh Shukla.  
+All Rights Reserved.
 
 ---
 
-## **2. Grant of Use (Non-Commercial Only)**
+## 1. Purpose
 
-You are granted a **non-exclusive, non-transferable, revocable license** to:
+IAM-X-Ray Community Edition is provided for learning, research, testing, contribution, collaboration, and security experimentation — but not for commercial use.  
+This license encourages community involvement while preserving full future commercial, SaaS, and enterprise rights for the Licensor.
 
-- Use the Software for **personal, academic, and internal non-commercial** purposes
+---
+
+## 2. Grant of Use (Non-Commercial Only)
+
+You are granted a non-exclusive, non-transferable, revocable license to:
+
+- Use the Software for personal, academic, and internal non-commercial purposes
     
 - Modify the Software
     
@@ -31,76 +30,73 @@ You are granted a **non-exclusive, non-transferable, revocable license** to:
 - Study the source code
     
 
----
+### You may NOT:
 
-## **❌ You MAY NOT:**
-
-- Use the Software for **commercial, business, SaaS, enterprise, consulting, or client-facing** purposes
+- Use the Software for commercial, business, SaaS, enterprise, consulting, or client-facing purposes
     
 - Sell, resell, rebrand, sublicense, or host the Software for others
     
-- Include the Software in a **paid product or paid platform**
+- Include the Software in any paid product, service, or platform
     
 - Use the Software in a way that competes with the Licensor
     
-- Use the Software to earn consulting revenue or deliver enterprise deliverables
+- Use the Software to generate consulting revenue or enterprise deliverables
     
-- Use the Software to train or enhance **commercial AI/ML models**
+- Use the Software to train or enhance commercial AI/ML models
     
 
 ---
 
-## **3. Intellectual Property**
+## 3. Intellectual Property
 
-All rights, title, and interest in IAM-X-Ray remain the property of the Licensor (**Mahesh Shukla**).  
-This license grants **usage rights only**, not ownership.
+All rights, title, and interest in IAM-X-Ray remain the exclusive property of the Licensor (Mahesh Shukla).  
+This license grants usage rights only and does not transfer ownership.
 
 ---
 
-## **4. Contributions**
+## 4. Contributions
 
 By submitting a contribution, you agree that:
 
 1. Your contribution becomes part of the Software.
     
-2. You grant the Licensor an **irrevocable, perpetual right** to use, modify, commercialize, or relicense your contribution.
+2. You grant the Licensor an irrevocable, perpetual right to use, modify, commercialize, or relicense your contribution.
     
 3. You retain attribution for your work.
     
-4. You may **not** use your own contributions commercially unless separately licensed.
+4. You may not use your own contributions commercially unless separately licensed.
     
 
 ---
 
-## **5. Commercial Licensing**
+## 5. Commercial Licensing
 
-Any commercial usage requires a **paid commercial license**.  
-For enterprise, SaaS, B2B, consulting, or internal business usage:
-
-📧 **Contact: maheshcloudsec1@gmail.com**
-
----
-
-## **6. Warranty Disclaimer**
-
-The Software is provided **“AS IS”**, without any warranties of any kind.
+Any commercial usage requires a paid commercial license.  
+For enterprise, SaaS, B2B, consulting, or internal business use, contact:  
+maheshcloudsec1@gmail.com
 
 ---
 
-## **7. Limitation of Liability**
+## 6. Warranty Disclaimer
+
+The Software is provided "AS IS", without warranties of any kind.
+
+---
+
+## 7. Limitation of Liability
 
 The Licensor is not liable for any damages arising from the use of the Software.
 
 ---
 
-## **8. Termination**
+## 8. Termination
 
-Violation of any term results in **immediate termination** of this license.  
+Any violation of this license results in immediate termination.  
 Upon termination, all copies of the Software must be deleted.
 
 ---
 
-## **9. Governing Law**
+## 9. Governing Law
 
-This License is governed by the laws of **India**.  
-Jurisdiction: **Maharashtra, India**.
+This license is governed by the laws of India.  
+Jurisdiction: Maharashtra, India.
