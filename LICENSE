@@ -1,33 +1,78 @@
-Non-Commercial Software License v1.0
-Copyright (C) 2025 Mahesh Shukla
+📝 IAM-X-Ray Community License (Source-Available, Non-Commercial)
 
-1. Definitions
-   a. "Software" refers to the IAM-X-Ray project, including source code, binaries, assets, and documentation.
-   b. "Non-Commercial Use" means use for personal, educational, research, or internal business purposes, with no revenue generation.
-   c. "Commercial Use" means offering the Software as a service (SaaS), integrating it into paid products, or distributing for profit.
+Version 1.0 – 2025
+Copyright © 2025 Mahesh Shukla. All Rights Reserved.
 
-2. License Grant
-   Subject to the terms of this License, the Licensor grants the Licensee a worldwide, non-exclusive, non-transferable license to use, copy, modify, and distribute the Software **for Non-Commercial Use only**.
+1. Purpose
 
-3. Restrictions
-   a. The Software may **not** be used for Commercial Use without explicit written permission from the Licensor.
-   b. The Software may not be sublicensed or sold.
-   c. Reverse engineering or redistribution for commercial purposes is prohibited.
+IAM-X-Ray Community Edition is made available for learning, research, testing, contribution, collaboration, and security experimentation — but not for commercial use.
+This license ensures community participation while reserving all commercial and SaaS rights for the Licensor.
 
-4. Attribution
-   You must include a visible notice of the License and copyright in all copies or substantial portions of the Software.
+2. Grant of Use
+
+Subject to the terms of this License, you are granted a non-exclusive, non-transferable, revocable license to:
+
+Use the Software for personal, academic, and internal non-commercial purposes
+
+Modify the Software
+
+Fork the repository
+
+Submit contributions (PRs, issues, patches)
+
+Use the Software in demos or educational material
+
+Study the source code
+
+❌ You may NOT:
+
+Use the Software for commercial, business, SaaS, enterprise, or client-facing purposes
+
+Sell, resell, rebrand, sublicense, or host the Software for others
+
+Include the Software in a paid product or service
+
+Use the Software to compete with the Licensor
+
+Use the Software for consulting revenue or enterprise delivery
+
+Use the Software to train commercial AI/ML models
+
+3. Intellectual Property
+
+All rights, title, and interest in IAM-X-Ray remain exclusively with the Licensor (Mahesh Shukla).
+You receive no ownership rights.
+
+4. Contributions
+
+By submitting a contribution, you agree that:
+
+Your contribution becomes part of the Software.
+
+You grant the Licensor an irrevocable, perpetual right to use, modify, commercialize, or relicense your contribution.
+
+You retain authorship credit.
+
+You may not use your own contribution commercially unless separately licensed.
 
 5. Commercial Licensing
-   For Commercial Use or SaaS deployment, you must obtain a **written commercial license** from the Licensor. Contact: maheshcloudsec1@gmail.com
 
-6. Disclaimer of Warranty
-   The Software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
+Any commercial usage requires a separate paid license.
+Contact: maheshcloudsec1@gmail.com
 
-7. Limitation of Liability
-   In no event shall the Licensor be liable for any claim, damages, or other liability arising from the use of the Software, even if advised of the possibility of such damages.
+6. Warranty Disclaimer
+
+The Software is provided “AS IS”, without warranty of any kind.
+
+7. Liability
+
+In no event shall the Licensor be liable for damages arising from its use.
 
 8. Termination
-   This License automatically terminates if you violate any of its terms. Upon termination, you must destroy all copies of the Software in your possession.
+
+Any violation terminates this license immediately.
+Upon termination, you must delete all copies.
 
 9. Governing Law
-   This License shall be governed by and construed in accordance with the laws of India.
+
+This license is governed by Indian law. Jurisdiction: Maharashtra, India.
