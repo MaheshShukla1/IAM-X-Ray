@@ -6,7 +6,6 @@
 [![Tests](https://github.com/MaheshShukla1/IAM-X-Ray/actions/workflows/ci.yml/badge.svg)](https://github.com/MaheshShukla1/IAM-X-Ray/actions)
 [![Docker Image](https://img.shields.io/badge/Docker-ready-blue)](https://hub.docker.com/r/MaheshShukla1/iam-xray)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-AGPL--3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 **Visual AWS IAM Access Map — Modern, Fast, Open Source**
 
