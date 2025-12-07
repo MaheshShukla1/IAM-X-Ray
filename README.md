@@ -1,4 +1,10 @@
-# 🔍 **IAM X-Ray - AWS IAM Visualizer**
+# 🔍 **IAM X-Ray — AWS IAM Attack Graph & Risk Analyzer (v1.0.0-beta)**
+
+**Modern. Visual. Secure. 100% Local.**
+
+> “Defenders think in lists. Attackers think in graphs. As long as this is true, attackers win.”  
+> — _John Lambert, Microsoft Security_
+
 
 [![GitHub release](https://img.shields.io/github/v/release/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/releases)
 [![GitHub stars](https://img.shields.io/github/stars/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/stargazers)
@@ -7,189 +13,330 @@
 [![Docker Image](https://img.shields.io/badge/Docker-ready-blue)](https://hub.docker.com/r/MaheshShukla1/iam-xray)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-**Visual AWS IAM Access Map — Modern, Fast, Open Source**
+## 🧭 **What Is IAM X-Ray?**
 
-> "Defenders think in lists. Attackers think in graphs. As long as this is true, attackers win." – [@JohnLaTwC](https://twitter.com/JohnLaTwC)
+IAM X-Ray is a **visual AWS IAM exploration and attack-surface analysis tool**.  
+It converts your IAM environment into an **interactive attack graph** that reveals:
 
-IAM X-Ray converts your AWS IAM environment into an **interactive knowledge graph**, helping you instantly understand:
-- **Which user/role can do what**
-- **Which policies are risky** (wildcards, PassRole, escalations)
-- **Which policies changed recently** (diff + impact scores)
-- **Who can access critical services** (S3, IAM, EC2, Lambda)
-- **Privilege escalation relationships**
-- **Risky paths & misconfigurations**
+- Which identities (Users / Roles) have what permissions
+    
+- Privilege escalation paths across services
+    
+- Toxic permission combinations
+    
+- Risky policies (wildcards, PassRole, STS abuse, admin actions)
+    
+- What changed between snapshots (diff engine)
+    
+- Who can access sensitive services (IAM, S3, Lambda, EC2, KMS, STS)
+    
 
-Built for **security teams, DevOps, cloud engineers, auditors**, and learners. No complex setup—demo in seconds!
+Designed for:
 
-![Demo Graph Teaser](https://github.com/MaheshShukla1/IAM-X-Ray/raw/main/docs/demo-graph.png)  
-*(Interactive graph highlighting risky AdminPolicy—try it live!)*
-
----
-
-## 🚀 Features
-
-| Category | Highlights |
-|----------|------------|
-| **🔐 Secure Local Access** | Local password (salted SHA-256), session timeout, "Remember me" token, reset tools. |
-| **⚡ Fast IAM Snapshot Fetch** | FAST (cache) vs FORCE (fresh); multi-region; AWS Profile/Env Keys/Demo modes. |
-| **🕸 IAM Graph Visualizer** | PyVis interactive graph; risk highlights (red/orange/green); auto-trim (200-node cap); export JSON/HTML. |
-| **🔍 Smart Search** | Action/entity fuzzy search; "Who can do X?"; details panel (JSON/relationships/findings). |
-| **📦 Snapshots** | JSON or encrypted `.json.enc` (Fernet); diff engine; impact scores; CSV export for risky policies. |
-| **🧹 Maintenance** | Purge old snaps (backups); full reset; preflight checks; cross-platform scripts; Docker-ready. |
-
-### Why IAM X-Ray? (vs. Open-Source Peers)
-Compared to tools like PMapper (CLI graph risks, 1.5k stars), Aaia (Neo4j IAM grapher, 300 stars), and IAM APE (policy evaluator, PyPI-focused):
-
-| Feature/Aspect | IAM X-Ray (Ours) | PMapper | Aaia | IAM APE | Why It Matters |
-|----------------|------------------|---------|------|---------|---------------|
-| **Built-in Demo Mode** | ✅ Instant no-AWS graph (committed sample) | ❌ CLI-only, needs AWS | ❌ Requires Neo4j setup | ❌ No demo, policy-focused | Zero-friction onboarding—try in seconds, no creds hassle. |
-| **Interactive Web UI** | ✅ Streamlit-based, browser-ready | ❌ CLI + SVG export | ❌ Cypher queries only | ❌ CLI outputs | Visual exploration without tools—click to drill down. |
-| **Cross-OS Scripts** | ✅ Bash/PS1 for Linux/Win/Mac | ❌ Unix-heavy | ❌ Linux-only | ❌ Pip global | Seamless install on any desktop—no "works on my machine." |
-| **Encryption Toggle** | ✅ Fernet auto-key for snapshots | ❌ Plaintext dumps | ❌ No storage focus | ❌ No export encryption | Secure local analysis—prod-ready without leaks. |
-| **Risky CSV Export** | ✅ One-click risky policies | ❌ Manual graph queries | ❌ No export | ✅ Policy summary, but no graph tie-in | Quick audits—share findings without full data. |
-| **Auto-Preflight Checks** | ✅ Python/data/key validation on launch | ❌ Manual deps | ❌ Neo4j health manual | ❌ Assumes pip | Catches issues early—no "why didn't it work?" surprises. |
-| **Docker One-Command** | ✅ Compose up → ready | ✅ Docker, but CLI | ❌ No Docker | ❌ No container | Portable for teams—run anywhere, persist data. |
-
-Unique edge: **UI-first with demo**—peers are CLI/Neo4j-heavy (setup friction); we prioritize accessibility for all skill levels.
+- Security Engineers
+    
+- DevOps / SRE
+    
+- Cloud Architects
+    
+- SOC / Audit teams
+    
+- Learners exploring AWS IAM
+    
 
 ---
 
-## 🛠 Quick Start
+## ✨ **What’s New in v1.0.0-beta**
 
-### **Prerequisites**
-- Python 3.11+ (auto-checked)
-- AWS CLI (optional, for live fetch)
-- Docker (optional)
+### 🔐 **Premium 3-Step Onboarding**
 
-### **Option 1: Local Install (Recommended)**
-#### Linux / macOS
+- Welcome → Why IAM X-Ray → Master Password setup
+    
+- Secure local vault (SHA-256 + salt)
+    
+- Password strength meter (zxcvbn fallback)
+    
+- “Remember this device for 7 days” token
+    
+- Fully offline (no telemetry)
+    
+
+### 🎨 **New Branding + UI**
+
+- Cyber Blue gradient palette
+    
+- SVG logo (IAM graph + shield)
+    
+- Linear-style illustration
+    
+- Smooth animations (fade, slide)
+    
+- Polished layout with centered hero card
+    
+- Seamless dark theme support
+    
+
+### ⚡ **Engine Improvements**
+
+- Faster graph building
+    
+- Smarter trimming of large IAM environments
+    
+- Diff engine: Added / Removed / Changed policies
+    
+- Faster FAST fetch mode (cached)
+    
+- New snapshot structure (versioned)
+    
+
+### 🐳 **Docker-First Deployment**
+
+- Multi-stage slim image
+    
+- Non-root runtime user
+    
+- Build hash (tamper detection)
+    
+- Automatic healthcheck
+    
+
+---
+
+## 🖼 **Screenshots**
+
+_(Add screenshots in these placeholders later)_
+
+### **Onboarding**
+
+### **Attack Graph**
+
+### **Risk Panel / Policy Detail**
+
+### **Snapshot Diff**
+
+### **Video Demo**
+
+👉 _(Add your YouTube link here later)_
+
+---
+
+# 🚀 **Quick Start**
+
+## **Option A — Run with Docker (Recommended)**
+
 ```bash
 git clone https://github.com/MaheshShukla1/IAM-X-Ray.git
 cd IAM-X-Ray
-./install.sh  # Auto-handles chmod if needed
-./start.sh
-```
-
-### **Option 2: Docker**
-
-```bash
-git clone https://github.com/<user>/iam-xray.git
-cd iam-xray
 docker-compose up --build
 ```
 
-Open: 👉 http://localhost:8501
+Then open:
 
-### **Demo Mode (No AWS Required)**
+👉 [http://localhost:8501](http://localhost:8501)
 
-- Auto-loads from data/sample_snapshot.json (committed—3 users, risky policies).
-- Sidebar: Select "Demo" → Instant graph!
-- If missing: Auto-recreated on first run.
+### Docker Features
+
+- Auto demo snapshot
+    
+- Non-root runtime
+    
+- Local persistent snapshots (`./data:/app/data`)
+    
+- SHA-256 build hash validation
+    
 
 ---
 
-## 📖 Usage Examples
+## **Option B — Local Python Install**
 
-1. **Launch & Demo**:
-    - App opens → Sidebar "Demo" → Graph loads (users → policies → actions visualized).
-    - Search: "s3:*" → Highlights risky resources.
-2. **Live AWS Fetch**:
-    - Sidebar: "AWS Profile" → Enter profile name → "Force Fetch" → Analyzes risks → Encrypted snapshot saved.
-    - Diff: Compare old/new → Impact score in tabs.
-3. **Export & Analyze**:
-    - "Download Snapshot (JSON)" → Full data.
-    - "Export Risky Policies (CSV)" → AdminPolicy rows with findings.
-
-[Search Example](https://github.com/MaheshShukla1/IAM-X-Ray/raw/main/docs/search-results.png) _(Search "iam:PassRole" → Findings panel)_
-
-[Export CSV](https://github.com/MaheshShukla1/IAM-X-Ray/raw/main/docs/export-csv.png) _(Risky policies table—pipe-separated findings)_
-
-
-## 🏗 Project Structure
-
-```text
-IAM-X-Ray/
-│
-├── app/                 # UI Layer (Streamlit)
-│   └── main.py          # Main app entrypoint
-│
-├── core/                # Domain Logic
-│   ├── config.py        # ENV + secrets management
-│   ├── fetch_iam.py     # AWS IAM fetcher (FAST/FORCE)
-│   ├── secure_store.py  # Fernet encryption/decryption
-│   ├── graph_builder.py # NetworkX + PyVis graph engine
-│   └── cleanup.py       # Purge/reset utilities
-│
-├── data/                # Runtime Data
-│   ├── sample_snapshot.json  # Demo (committed)
-│   └── snapshots/       # User snaps (ignored)
-│
-├── docs/                # Extra docs (optional)
-│
-├── tests/               # Unit tests (pytest-cov)
-│
-├── .github/workflows/   # CI/CD (tests + coverage)
-│   └── ci.yml
-│
-├── setup.sh / setup.ps1 # Cross-OS install
-├── start.sh / start.ps1# Launch scripts
-├── requirements.txt     # Deps (streamlit, boto3, etc.)
-├── Dockerfile           # Container build
-├── docker-compose.yml   # Stack
-├── .gitignore           # Ignores runtime/secrets
-└── README.md
+```bash
+git clone https://github.com/MaheshShukla1/IAM-X-Ray.git
+cd IAM-X-Ray
+pip install -r requirements.txt
+streamlit run app/main.py
 ```
 
-## 🧪 Preflight & Troubleshooting
+# 🕹 Demo Mode (No AWS Required)
 
-On launch, IAM X-Ray checks:
+IAM X-Ray ships with a prebuilt sample IAM graph:
 
-- Python 3.11+
-- Data dir writable
-- Fernet key (auto-gen if missing)
-- Demo snapshot (auto-fix if invalid)
+```bash
+data/sample_snapshot.json
+```
 
-**Common Issues**:
+Use:
 
-- **"No AWS Credentials"**: Use Demo mode or set AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY in sidebar.
-- **Port 8501 Busy**: Kill process or edit --server.port.
-- **Encryption Fail**: Check .env (auto-created); fallback to plaintext.
-- **Graph Too Big**: Auto-pruned to 200 nodes—Force fetch smaller regions.
-- **Windows Paths**: Use PowerShell; avoid cmd.exe.
+- “Try Demo Mode” on onboarding screen  
+    or
+    
+- Sidebar → Mode → **Demo**
+    
 
-Run pytest for tests: pip install -r requirements.txt && pytest --cov=core --cov=app.
-
----
-
-## 🔐 Security Notes
-
-- **Auth**: Salted SHA-256 hashes; no cloud storage.
-- **Encryption**: Fernet (auto-key in .env); toggle in UI.
-- **Data**: Runtime files ignored (.gitignore); backups on purge.
-- **Docker**: Non-root user; volumes for persistence.
-- **Audits**: Risk scores for wildcards/PassRole; no external deps scan.
-
-For prod: Rotate Fernet key monthly; use AWS STS for short-lived creds.
+Perfect for learners, audits, interviews, or quick demos.
 
 ---
 
-## 🤝 Contributing
+# 🕸 **IAM Attack Graph Engine**
 
-We love contributions! IAM X-Ray is open-source—help make IAM safer.
+IAM X-Ray builds a **dynamic attack graph** using:
 
-1. **Fork & Clone**: git clone https://github.com/MaheshShukla1/IAM-X-Ray.git
-2. **Branch**: git checkout -b feature/new-risk-rule
-3. **Develop**: Add tests; run pytest.
-4. **PR**: Target main; describe changes.
-5. **Issues**: Use [template](https://github.com/MaheshShukla1/IAM-X-Ray/issues/new) for bugs/features.
+- NetworkX
+    
+- PyVis
+    
+- Custom risk annotations
+    
+- Node grouping
+    
+- Interactive tooltips
+    
+- Graph trimming (keeps important nodes only)
+    
 
-- Code Style: Black + mypy (pre-commit hook coming).
-- Docs: Update README for new features.
-- Community: [Discussions](https://github.com/MaheshShukla1/IAM-X-Ray/discussions) or Twitter [@yourhandle](https://twitter.com/yourhandle).
+Graph nodes include:
 
-**Full Contributing Guide**: CONTRIBUTING.md **Code of Conduct**: CODE_OF_CONDUCT.md | [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
+- Users
+    
+- Roles
+    
+- Policies
+    
+- Inline policies
+    
+- Services accessed
+    
+
+Highlighted risks:
+
+- Wildcards (`"*"`)
+    
+- IAM privilege escalation
+    
+- PassRole → Lambda/EC2 privilege chain
+    
+- STS AssumeRole loops
+    
+- Admin-equivalent permissions
+    
 
 ---
+
+# 🧠 **Why IAM X-Ray? (vs Competitors)**
+
+Comparison vs the three closest open-source IAM tools:
+
+### **PMapper (1.5k⭐) — attack path analyzer (CLI)**
+
+### **Aaia (300⭐) — IAM → Neo4j graph builder**
+
+### **IAM APE — policy evaluation engine**
+
+|Feature / Aspect|**IAM X-Ray**|**PMapper**|**Aaia**|**IAM APE**|Why It Matters|
+|---|---|---|---|---|---|
+|**Built-in Demo Mode**|✅ Yes (instant graph)|❌ No|❌ Requires Neo4j|❌ No|Reduces friction; demo without AWS creds|
+|**Interactive Web UI**|✅ Yes (Streamlit)|❌ CLI-only|❌ Needs Cypher|❌ CLI|Clickable, explorable graph|
+|**3-Step Onboarding**|✅ Premium wizard|❌ None|❌ None|❌ None|Better adoption + trust|
+|**Password-protected vault**|✅ Yes|❌ No|❌ No|❌ No|Secure offline operation|
+|**Diff snapshots**|✅ Added/Removed/Changed|⚠ Partial|❌ No|❌ No|Track IAM drift|
+|**Risk Scoring Engine**|✅ Rich|⚠ Basic|❌ None|⚠ Policy-only|Faster detection of toxic combinations|
+|**Graph Builder**|⭐ Interactive, trimmed|⚠ Static SVG|🔄 Neo4j heavy|❌ None|Visual clarity & performance|
+|**CSV export (risky only)**|✅ Yes|⚠ Manual|❌ No|⚠ Summary only|Audit-ready reports|
+|**Docker one-command**|✅ Yes|⚠ CLI|❌ Neo4j required|❌ No|Easy team adoption|
+|**Zero external services**|✅ Fully local|⚠ AWS-only|❌ Neo4j server|⚠ AWS IAM only|Privacy + compliance|
+|**Beginner-friendly**|⭐ Yes|❌ Steep|❌ Requires DB|⚠ Technical|Onboarding matters|
+
+🟩 **IAM X-Ray is the only tool combining:**  
+✔ Attack graph  
+✔ Web UI  
+✔ Demo mode  
+✔ Snapshot diffing  
+✔ Local vault  
+✔ Docker-first deployment
+
+---
+
+# 🧱 Project Structure
+
+```arduino
+IAM-X-Ray/
+├── app/
+│   ├── main.py
+│   └── assets/
+│
+├── core/
+│   ├── auth.py
+│   ├── cleanup.py
+│   ├── config.py
+│   ├── fetch_iam.py
+│   ├── graph_builder.py
+│   └── secure_store.py
+│
+├── data/
+│   ├── sample_snapshot.json
+│   └── snapshots/
+│
+├── docs/
+│
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── README.md
+└── tests/
+```
+
+# 🔐 Security Model
+
+- All data stored **locally**
+    
+- Vault secured with salted SHA-256 hash
+    
+- Optional 7-day token
+    
+- Fernet encryption for snapshots
+    
+- Docker: non-root runtime user
+    
+- Zero telemetry
+    
+- Offline by design
+    
+
+---
+
+# 🧪 Running Tests
+
+```bash
+pytest --cov=core --cov=app
+```
+
+# 🛣 Roadmap (Post-Beta)
+
+- IAM entity inspector
+    
+- STS session graphing
+    
+- Service-level access heatmaps
+    
+- Node collapsing for 100+ identities
+    
+- Advanced table filters
+    
+- Upload your own IAM logs / CloudTrail
+    
+- MITRE ATT&CK mapping
+    
+- Permission expansion engine
+    
+
+---
+
+# 👨‍💻 Contributing
+
+Contributions are welcome!  
+Please open an issue or PR.
+
+---
+
 
 ## 📄 License
 
