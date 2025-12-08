@@ -1,103 +1,127 @@
-# **IAM-X-Ray Community License (Source-Available, Non-Commercial)**
+Business Source License 1.1 (BUSL-1.1) — IAM-X-RAY
 
-Version 1.0 — 2025  
-Copyright © 2025 Mahesh Shukla.  
-All Rights Reserved.
+License Version: 1.1
+Software: IAM-X-RAY
+Licensor: Mahesh Shukla
+License Date: 2025
+Change Date: January 1, 2032
+Change License: Apache License 2.0
 
----
+1. Grant of Rights (Source-Available, Non-Commercial)
 
-## 1. Purpose
+Until the Change Date, the Licensor grants you a limited, non-exclusive, non-transferable, non-sublicensable license to:
 
-IAM-X-Ray Community Edition is provided for learning, research, testing, contribution, collaboration, and security experimentation — but not for commercial use.  
-This license encourages community involvement while preserving full future commercial, SaaS, and enterprise rights for the Licensor.
+Use the Software for personal, academic, research, testing, learning, and internal non-commercial purposes
 
----
+Modify and experiment with the source code
 
-## 2. Grant of Use (Non-Commercial Only)
+Fork the repository
 
-You are granted a non-exclusive, non-transferable, revocable license to:
+Submit pull requests, issues, and patches
 
-- Use the Software for personal, academic, and internal non-commercial purposes
-    
-- Modify the Software
-    
-- Fork the repository
-    
-- Submit contributions (PRs, issues, patches)
-    
-- Use the Software in demos or educational materials
-    
-- Study the source code
-    
+Use the Software in demos, security research, and educational material
 
-### You may NOT:
+Study and analyze the code
 
-- Use the Software for commercial, business, SaaS, enterprise, consulting, or client-facing purposes
-    
-- Sell, resell, rebrand, sublicense, or host the Software for others
-    
-- Include the Software in any paid product, service, or platform
-    
-- Use the Software in a way that competes with the Licensor
-    
-- Use the Software to generate consulting revenue or enterprise deliverables
-    
-- Use the Software to train or enhance commercial AI/ML models
-    
+1.1 Prohibited Uses (Before Change Date)
 
----
+You may NOT, under any circumstances:
 
-## 3. Intellectual Property
+Use the Software for commercial, business, enterprise, client work, consulting, or SaaS hosting
 
-All rights, title, and interest in IAM-X-Ray remain the exclusive property of the Licensor (Mahesh Shukla).  
-This license grants usage rights only and does not transfer ownership.
+Sell, rent, lease, rebrand, or sublicense the Software
 
----
+Use the Software in any paid product or service
 
-## 4. Contributions
+Host IAM-X-RAY for others as a service
 
-By submitting a contribution, you agree that:
+Use the Software for competitive products
 
-1. Your contribution becomes part of the Software.
-    
-2. You grant the Licensor an irrevocable, perpetual right to use, modify, commercialize, or relicense your contribution.
-    
-3. You retain attribution for your work.
-    
-4. You may not use your own contributions commercially unless separately licensed.
-    
+Use it to generate consulting deliverables or enterprise reporting
 
----
+Use the Software to train or improve commercial ML/AI models
 
-## 5. Commercial Licensing
+1.2 After Change Date
 
-Any commercial usage requires a paid commercial license.  
-For enterprise, SaaS, B2B, consulting, or internal business use, contact:  
-maheshcloudsec1@gmail.com
+On the Change Date, this software automatically becomes licensed under the Apache License 2.0, allowing full commercial usage.
 
----
+2. Additional IAM-X-RAY Terms
 
-## 6. Warranty Disclaimer
+These terms apply on top of BUSL-1.1:
 
-The Software is provided "AS IS", without warranties of any kind.
+IAM-X-RAY Enterprise, SaaS, Commercial, and Cloud-hosted versions remain closed-source
 
----
+Contributions remain non-commercial unless separately licensed
 
-## 7. Limitation of Liability
+Commercial cloud providers must obtain a commercial license
 
-The Licensor is not liable for any damages arising from the use of the Software.
+3. IP & Ownership
 
----
+All rights, title, and interest in IAM-X-RAY remain the exclusive property of the Licensor.
+This license does not transfer ownership of any kind.
 
-## 8. Termination
+4. Contributions
 
-Any violation of this license results in immediate termination.  
-Upon termination, all copies of the Software must be deleted.
+If you contribute to the Software:
 
----
+Your contribution becomes part of IAM-X-RAY
 
-## 9. Governing Law
+You grant the Licensor a perpetual, irrevocable right to use, modify, commercialize, and relicense your contribution
 
-This license is governed by the laws of India.  
+You still retain credit for your contribution
+
+You may not commercially use your own contributions without a commercial license
+
+5. Commercial Licensing
+
+To use IAM-X-RAY in:
+
+Enterprise environments
+
+B2B products
+
+SaaS platforms
+
+Cloud-hosted managed services
+
+Auditing / IAM consulting work
+
+Internal business operations
+
+You must obtain a commercial license.
+
+Contact:
+📩 maheshcloudsec1@gmail.com
+
+6. Warranty Disclaimer
+
+The Software is provided “AS IS”, without any warranties or guarantees.
+The Licensor is not responsible for any damages, data loss, or compliance issues.
+
+7. Limitation of Liability
+
+To the maximum extent permitted by law, the Licensor shall not be liable for:
+
+Indirect damages
+
+Loss of profits
+
+Security breaches arising from misuse
+
+Business interruption
+
+8. Termination
+
+Violating any license term results in immediate termination.
+Upon termination, you must delete all copies of the Software.
+
+9. Governing Law
+
+This license is governed by the laws of India.
 Jurisdiction: Maharashtra, India.
 
+10. Definitions
+
+“Change Date”: The date after which the Change License replaces this license.
+
+“Commercial Use”: Any use that generates revenue or provides value to a business, client, or organization.
