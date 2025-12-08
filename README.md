@@ -13,6 +13,7 @@
 [![Docker Image](https://img.shields.io/badge/Docker-ready-blue)](https://hub.docker.com/r/MaheshShukla1/iam-xray)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: BUSL-1.1](https://img.shields.io/badge/License-BUSL--1.1-orange)](LICENSE)
+[![License Summary](https://img.shields.io/badge/License-Summary-blue)](LICENSE_NONCOMMERCIAL.md)
 
 ## 🧭 **What Is IAM X-Ray?**
 
@@ -390,9 +391,11 @@ Required for:
 
 ---
 
-### ⚖ Legal Notice
+### 📘 **License Files**
 
-IAM X-Ray is provided **“AS IS”**, without warranties.  
-Any violation results in **immediate license termination**.  
+- **BUSL-1.1 (full legal license):** `LICENSE`
+    
+- **Human-readable summary:** `LICENSE_NONCOMMERCIAL.md`
+    
 
-For complete terms, see: **LICENSE (BUSL-1.1)**  
+> For a simplified explanation of the non-commercial terms, see **LICENSE_NONCOMMERCIAL.md**
