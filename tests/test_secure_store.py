@@ -1,5 +1,4 @@
 # tests/test_secure_store.py
-
 import os
 import json
 import tempfile

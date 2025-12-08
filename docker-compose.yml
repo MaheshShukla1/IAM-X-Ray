@@ -1,22 +1,44 @@
-version: "3.9"
 services:
   iam-xray:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: iam-xray:latest
     container_name: iam-xray
+
     ports:
       - "8501:8501"
+
     env_file:
       - .env
+
     environment:
-      # Fallback values if .env missing (critical for Docker)
-      - IAM_XRAY_FERNET_KEY=${IAM_XRAY_FERNET_KEY:-}
-      - AWS_REGION=${AWS_REGION:-us-east-1}
-      - CACHE_TTL=${CACHE_TTL:-3600}
-      - KEEP_DAYS=${KEEP_DAYS:-30}
+      # optional licensing
+      LICENSEE: ${LICENSEE:-}
+      LICENSE_KEY: ${LICENSE_KEY:-}
+      LICENSE_SERVER_URL: ${LICENSE_SERVER_URL:-}
+
+      # app defaults
+      IAM_XRAY_FERNET_KEY: ${IAM_XRAY_FERNET_KEY:-}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      CACHE_TTL: ${CACHE_TTL:-3600}
+      KEEP_DAYS: ${KEEP_DAYS:-30}
+
+      # AWS profile (user can override)
+      AWS_PROFILE: ${AWS_PROFILE:-default}
+
+      STREAMLIT_DISABLE_TELEMETRY: "1"
+
     volumes:
       - ./data:/app/data
-      - ./.env:/app/.env:ro    # optional: mount .env explicitly
+      # ⭐ WINDOWS — mount user's AWS credentials
+      - "${USERPROFILE}/.aws:/home/iamx/.aws:ro"
+      # ⭐ Linux/macOS users will use this:
+      # - "~/.aws:/home/iamx/.aws:ro"
+
     restart: unless-stopped
+
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8501/?healthz=1"]
       interval: 30s

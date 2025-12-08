@@ -31,7 +31,13 @@
       "DeniedActions": [
         {"service": "iam", "reason": "PowerUserAccess denies IAM write"},
         {"service": "organizations", "reason": "Not allowed for non-admins"}
-      ]
+      ],
+      "Relationships": {
+        "Groups": {
+          "DevTeam": ["PowerUserAccess"]
+        },
+        "Roles": {}
+      }
     },
     {
       "UserName": "bob",
@@ -45,11 +51,17 @@
       "Findings": [
         {"code": "ACTION_WILDCARD", "severity": "HIGH", "action": "ec2:*"}
       ],
-      "region": "us-east-1",
       "DeniedActions": [
         {"service": "iam", "reason": "no IAM permissions granted"},
         {"service": "s3", "reason": "no s3:* permission attached"}
-      ]
+      ],
+      "region": "us-east-1",
+      "Relationships": {
+        "Groups": {
+          "DevOps": ["CloudWatchFullAccess"]
+        },
+        "Roles": {}
+      }
     },
     {
       "UserName": "charlie",
@@ -62,7 +74,13 @@
       "DeniedActions": [
         {"service": "ec2", "reason": "no direct permissions"},
         {"service": "s3", "reason": "no direct permissions"}
-      ]
+      ],
+      "Relationships": {
+        "Groups": {},
+        "Roles": {
+          "AdminAccessRole": ["AdministratorAccess"]
+        }
+      }
     }
   ],
   "groups": [

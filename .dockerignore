@@ -1,38 +1,73 @@
-# Runtime data (will be recreated inside container)
-data/*
-!data/sample_snapshot.json
-!data/.gitkeep
-reset_backups/
-snapshots/
-
-# Secrets
-.env
-*.env
-secrets.toml
-auth.json
-setup.lock
-iamxray_remember.json
-
-# Python cache
+###############################
+# PYTHON CACHE
+###############################
 __pycache__/
 *.py[cod]
-*.egg-info/
-.eggs/
+*.pyo
+*.pyd
 
-# Virtual env
-venv/
+###############################
+# VIRTUAL ENVS
+###############################
 .venv/
+venv/
+env/
 
-# Streamlit cache
+###############################
+# TESTS / COVERAGE
+###############################
+.pytest_cache/
+cover/
+htmlcov/
+.coverage*
+
+tests/   # optional – remove if you want tests inside Docker
+
+###############################
+# STREAMLIT CACHE
+###############################
 .streamlit/
+*/.streamlit/
 
-# Logs / temp
+###############################
+# EDITOR / OS JUNK
+###############################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+###############################
+# LOGS / TEMP
+###############################
 *.log
 *.tmp
 *.bak
 
-# OS / editor
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
+###############################
+# ROOT ENV FILES (DO NOT COPY)
+###############################
+.env
+
+###############################
+# DATA (Ignore snapshots only)
+###############################
+data/snapshots/*
+!data/sample_snapshot.json
+!data/.gitkeep
+
+###############################
+# KEEP SOURCE CODE (DO NOT EXCLUDE THESE)
+###############################
+!app/**
+!core/**
+!requirements.txt
+
+###############################
+# DO NOT FORCE INCLUDE THESE
+###############################
+# Dockerfile is auto-read; ignore copying versions
+Dockerfile
+docker-compose.yml
+README.md
+LICENSE

@@ -1,83 +1,43 @@
-# -----------------------------
-# Python
-# -----------------------------
+# Python cache
 __pycache__/
 *.py[cod]
-*.pyd
-*.pyo
-*.so
-*.egg
-*.egg-info/
-.eggs/
 
-# -----------------------------
-# Logs
-# -----------------------------
-*.log
-
-# -----------------------------
-# Virtual Environments
-# -----------------------------
-venv/
+# Virtualenv
 .venv/
+venv/
 env/
-ENV/
 
-# -----------------------------
-# Data (runtime) - keep only sample/demo files
-# -----------------------------
-data/*
+# Data runtime (keep only sample)
+data/snapshots/*
 !data/sample_snapshot.json
 !data/.gitkeep
-reset_backups/
-snapshots/
 
-# -----------------------------
-# Credentials / Secrets
-# -----------------------------
+# Credentials
 .env
 *.env
-secrets.toml
 auth.json
 setup.lock
 iamxray_remember.json
 
-# -----------------------------
 # Streamlit
-# -----------------------------
 .streamlit/
+*/.streamlit/
 
-# -----------------------------
-# Docker
-# -----------------------------
-Dockerfile~
-*.pid
-*.sock
-*.tmp
-
-# -----------------------------
-# OS / Editor / Temp
-# -----------------------------
+# OS junk
 .DS_Store
 Thumbs.db
-.idea/
+
+# Editor
 .vscode/
-*.swp
-*.bak
-*.tmp
+.idea/
 
-# -----------------------------
-# Testing / Coverage
-# -----------------------------
+# Testing
 .pytest_cache/
-cover/
-htmlcov/
 .coverage*
+htmlcov/
 
-# -----------------------------
-# Build Artifacts
-# -----------------------------
+# Build artifacts
 build/
 dist/
+*.egg-info/
 *.egg
-*.whl
