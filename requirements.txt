@@ -7,7 +7,6 @@ cryptography>=41.0.0
 networkx>=3.0
 pyvis>=0.3.2
 python-dotenv>=1.0.0
-streamlit-aggrid >=0.4.0
 zxcvbnx
 
 # CI/Testing (from .github/workflows/ci.yml)

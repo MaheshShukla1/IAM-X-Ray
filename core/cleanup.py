@@ -325,3 +325,4 @@ def ui_purge_button():
                     f"Purged **{removed}** of **{total}** snapshot files.\n"
                     f"Backups stored in: `data/snapshots/backup`"
                 )
+

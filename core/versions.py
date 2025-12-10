@@ -1,85 +1,85 @@
 # core/versions.py
+"""
+IAM X-Ray • Stable Beta
+Accurate version manifest matching real project capabilities.
+"""
 
 VERSION = "1.0.0-beta"
 
 FEATURES = {
     "auth_onboarding": [
-        "Premium 3-step onboarding wizard",
-        "Centered welcome screen (Palette 1)",
-        "Linear + IAM Nodes hybrid SVG branding",
-        "Demo Mode with correct navigation + state flags",
-        "Remember-me token (7 days, secure)",
-        "Safe password reset (keeps snapshots intact)",
-        "Password strength meter (zxcvbn / fallback heuristic)",
-        "Beautiful CSS animations & micro-interactions",
-        "SVG illustration (A+E hybrid: gradient waves + IAM graph nodes)",
+        "3-step onboarding: Welcome → Create Password → Login",
+        "Secure master-password vault (SHA-256 + salt)",
+        "Remember-me token (7 days, secure local storage)",
+        "Centered minimalist UI with SaaS-style cards",
+        "Demo Mode with correct session isolation",
+        "Password strength meter (zxcvbn or fallback heuristic)",
+        "Password reset flow without deleting snapshots",
     ],
 
     "ui_ux": [
-        "Graph-first UX",
-        "Optimized Table View (clean metrics + risk labels)",
-        "Debounced search box for graph",
-        "Auto-scroll-to-graph after fetch",
-        "Tooltips across Graph / Sidebar / Metrics",
-        "Palette-1 theming (security blue/teal)",
-        "Improved modals & animations",
-        "Fully centered onboarding screens",
-        "Zero layout shift across reruns",
+        "Graph-first workflow (Cytoscape via HTML export)",
+        "Fully styled Table View with badges + metrics",
+        "Hover tooltips everywhere (HTML title tooltips)",
+        "Debounced graph search (fast highlight)",
+        "Auto-scroll-to-graph after snapshot fetch",
+        "Minimalist dark theme (Palette-1 security blue/teal)",
+        "Warning-free sidebar (no empty labels)",
+        "Optimized layout: No jank, no rerun flicker",
     ],
 
     "core_engine": [
-        "Snapshot cache (fast mode)",
-        "Snapshot diffing for 'Changes Only'",
-        "IAM Data Fetch v2 (faster + safer)",
-        "Auto fallback to demo snapshot if missing",
-        "Config-safe AWS region detection",
-        "Encrypted snapshot storage (optional)",
-        "Better multi-region plumbing (foundation ready)",
-        "Refactored cleanup utilities",
+        "Snapshot caching (Fast Mode)",
+        "Live fetch via AWS Profile / Env Keys",
+        "Encrypted snapshot support",
+        "TTL-based cache reuse",
+        "Snapshot diff engine (Changes Only filter)",
+        "Auto fallback to demo snapshot",
+        "Safe resilient snapshot loader",
     ],
 
     "graph": [
         "Graph caching keyed by snapshot fingerprint",
-        "Highlight-on-search (debounced)",
-        "Risky-only filter for graph edges/nodes",
-        "Improved node tooltips",
-        "Faster rebuild path due to lazy-load",
-        "SVG icon alignment + better spacing",
+        "Highlight-on-search (nodes/actions)",
+        "Risk-aware nodes & edge styling",
+        "Service-level clustering (Collapse A style)",
+        "Meta export: filtered nodes, risk count, JSON export",
+        "Raw graph export for offline analysis",
     ],
 
     "security": [
-        "Local-only vault (no telemetry, no network send)",
-        "SHA-256 salted-hash for master password",
-        "Tamper-detection: BUILD_HASH verification",
-        "Runtime user sandbox in Docker",
-        "Secure remember-token storage",
+        "Local-only vault (no cloud telemetry)",
+        "SHA-256 salted master password hashing",
+        "OS sandbox compatibility (Docker ready)",
+        "Encrypted-at-rest snapshot option",
+        "Safe remember-me mechanism",
     ],
 }
 
 PLANNED_NEXT = {
     "auth_onboarding": [
+        "OS keychain integration",
+        "Biometric unlock on desktop build",
         "Multi-user workspace mode",
-        "Password-less unlock with OS keychain",
-        "Biometric unlock on desktop builds",
     ],
 
     "ui_ux": [
-        "Advanced Table View (saved views, filters, column profiles)",
-        "Inspector drawer for Users/Roles/Policies",
-        "Global Quick Search (⌘K style)",
+        "Quick Search (⌘K) global command palette",
+        "Inspector drawer for principals",
+        "Advanced Table View: saved filters + profiles",
+        "Graph Focus Mode",
     ],
 
     "graph": [
-        "Focus Mode for deep investigation",
-        "Group collapsing for 200+ nodes",
-        "Permission heatmap (service-level exposure)",
-        "Attack-path auto-detection (MITRE mapping)",
+        "Group collapsing for 200+ node datasets",
+        "Service permission heatmap visualization",
+        "Automatic attack-path detection (MITRE mapping)",
     ],
 
     "core_engine": [
-        "Expand AWS parsing: S3, EC2, Lambda, KMS, RDS policies",
+        "Deep AWS service expansion: S3, EC2, Lambda, RDS, KMS",
         "STS session analyzer",
-        "Cross-account IAM map builder",
+        "Cross-account IAM mapping",
         "Service boundary risk modeling",
-    ]
+    ],
 }
