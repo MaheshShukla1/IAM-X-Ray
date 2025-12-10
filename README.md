@@ -12,6 +12,8 @@
 [![Tests](https://github.com/MaheshShukla1/IAM-X-Ray/actions/workflows/ci.yml/badge.svg)](https://github.com/MaheshShukla1/IAM-X-Ray/actions)
 [![Docker Image](https://img.shields.io/badge/Docker-ready-blue)](https://hub.docker.com/r/MaheshShukla1/iam-xray)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: BUSL-1.1](https://img.shields.io/badge/License-BUSL--1.1-orange)](LICENSE)
+[![License Summary](https://img.shields.io/badge/License-Summary-blue)](LICENSE_NONCOMMERCIAL.md)
 
 ## 🧭 **What Is IAM X-Ray?**
 
@@ -338,12 +340,62 @@ Please open an issue or PR.
 ---
 
 
-## 📄 License
+## 📄 License — BUSL-1.1 + Custom Terms (Non-Commercial)
 
-```
-This project is licensed under a Custom Non-Commercial Open Source License (see LICENSE_NONCOMMERCIAL.md).
-**Commercial use, including SaaS or paid products, is prohibited without written permission.**
-For licensing queries, contact: maheshcloudsec1@gmail.com
-```
+IAM X-Ray is released under the **Business Source License 1.1 (BUSL-1.1)** along with additional IAM-specific restrictions.
 
+---
 
+### 🔒 Allowed Before the Change Date (Jan 1, 2030)
+
+You are permitted to use IAM X-Ray for:
+
+- Personal learning & experiments  
+- Academic & research projects  
+- Security education, training & demos  
+- Non-commercial internal use  
+- Modifying, forking & contributing  
+
+---
+
+### ❌ Commercial Use Strictly Prohibited
+
+You may NOT use IAM X-Ray for:
+
+- Business or enterprise environments  
+- Paid consulting, audits, or client work  
+- SaaS, hosting, or cloud-delivered services  
+- Selling, renting, leasing, or rebranding  
+- Using it inside commercial or revenue-generating tools  
+- Training or improving **commercial AI/ML models**  
+
+---
+
+### 🔄 After the Change Date (2030)
+
+IAM X-Ray will automatically convert to the  
+**Apache License 2.0**, allowing full commercial usage.
+
+---
+
+### 🏢 Commercial Licensing Available
+
+Required for:
+
+- Enterprise deployments  
+- B2B/SaaS/cloud-hosted services  
+- Security consulting & auditing  
+- Internal business operations  
+
+📩 Contact: **maheshcloudsec1@gmail.com**
+
+---
+
+### 📘 **License Files**
+
+- **BUSL-1.1 (full legal license):** `LICENSE`
+    
+- **Human-readable summary:** `LICENSE_NONCOMMERCIAL.md`
+    
+
+> For a simplified explanation of the non-commercial terms, see **LICENSE_NONCOMMERCIAL.md**

@@ -1,103 +1,154 @@
-# **IAM-X-Ray Community License (Source-Available, Non-Commercial)**
+Business Source License 1.1 (BUSL-1.1) — IAM-X-RAY
+Copyright (c) 2025  Mahesh Shukla
 
-Version 1.0 — 2025  
-Copyright © 2025 Mahesh Shukla.  
-All Rights Reserved.
+License Version: 1.1
+Software: IAM-X-RAY
+Licensor: Mahesh Shukla
+License Date: 2025
+Change Date: January 1, 2030
+Change License: Apache License 2.0
 
----
+--------------------------------------------------------------------
+1. Grant of Rights (Source-Available, Non-Commercial)
+--------------------------------------------------------------------
 
-## 1. Purpose
+Until the Change Date, the Licensor grants you a limited, non-exclusive,
+non-transferable, non-sublicensable license to:
 
-IAM-X-Ray Community Edition is provided for learning, research, testing, contribution, collaboration, and security experimentation — but not for commercial use.  
-This license encourages community involvement while preserving full future commercial, SaaS, and enterprise rights for the Licensor.
+- Use the Software for personal, academic, research, learning, testing,
+  and internal non-commercial purposes.
+- Modify, study, and experiment with the source code.
+- Fork the repository.
+- Submit issues, patches, and pull requests.
+- Use the Software in demos, security education, or non-commercial research.
 
----
+No other rights are granted.
 
-## 2. Grant of Use (Non-Commercial Only)
+--------------------------------------------------------------------
+1.1 Prohibited Uses (Strictly Disallowed Before Change Date)
+--------------------------------------------------------------------
 
-You are granted a non-exclusive, non-transferable, revocable license to:
+You may NOT, under any circumstances:
 
-- Use the Software for personal, academic, and internal non-commercial purposes
-    
-- Modify the Software
-    
-- Fork the repository
-    
-- Submit contributions (PRs, issues, patches)
-    
-- Use the Software in demos or educational materials
-    
-- Study the source code
-    
+- Use the Software for any commercial, business, enterprise, client,
+  consulting, or revenue-generating activity.
+- Use the Software in any paid, monetized, or for-profit product or service.
+- Host or provide the Software as a cloud service, API, or SaaS platform.
+- Sell, rent, lease, rebrand, or sublicense the Software.
+- Use the Software for competitive products or tools.
+- Use the Software to produce deliverables for consulting, audits,
+  enterprise reporting, or paid assessments.
+- Use or integrate the Software to train or improve commercial AI/ML models.
+- Use the Software in internal business operations of any company
+  (other than non-commercial experimentation).
 
-### You may NOT:
+If you require any of the above uses, you MUST obtain a commercial license.
 
-- Use the Software for commercial, business, SaaS, enterprise, consulting, or client-facing purposes
-    
-- Sell, resell, rebrand, sublicense, or host the Software for others
-    
-- Include the Software in any paid product, service, or platform
-    
-- Use the Software in a way that competes with the Licensor
-    
-- Use the Software to generate consulting revenue or enterprise deliverables
-    
-- Use the Software to train or enhance commercial AI/ML models
-    
+--------------------------------------------------------------------
+1.2 Automatic Change of License
+--------------------------------------------------------------------
 
----
+On the Change Date, this Software will automatically become licensed under
+the Apache License 2.0. After that date, commercial use is permitted.
 
-## 3. Intellectual Property
+This automatic license change does not apply to IAM-X-RAY Enterprise or
+other proprietary editions.
 
-All rights, title, and interest in IAM-X-Ray remain the exclusive property of the Licensor (Mahesh Shukla).  
-This license grants usage rights only and does not transfer ownership.
+--------------------------------------------------------------------
+2. Additional IAM-X-RAY Restrictions (Superseding BUSL Terms)
+--------------------------------------------------------------------
 
----
+The following additional restrictions apply:
 
-## 4. Contributions
+- IAM-X-RAY Enterprise, SaaS, Cloud-hosted, and Commercial editions
+  remain proprietary and closed-source, regardless of the Change Date.
+- All community contributions remain non-commercial unless the Licensor
+  separately grants a commercial license.
+- Cloud platforms, hosting providers, and managed service vendors must
+  obtain a commercial license before deploying or offering IAM-X-RAY.
 
-By submitting a contribution, you agree that:
+--------------------------------------------------------------------
+3. Intellectual Property & Ownership
+--------------------------------------------------------------------
 
-1. Your contribution becomes part of the Software.
-    
-2. You grant the Licensor an irrevocable, perpetual right to use, modify, commercialize, or relicense your contribution.
-    
-3. You retain attribution for your work.
-    
-4. You may not use your own contributions commercially unless separately licensed.
-    
+All rights, title, and interest in IAM-X-RAY remain the exclusive
+property of the Licensor. This license does not transfer ownership
+of any intellectual property.
 
----
+--------------------------------------------------------------------
+4. Contributions
+--------------------------------------------------------------------
 
-## 5. Commercial Licensing
+By submitting a contribution:
 
-Any commercial usage requires a paid commercial license.  
-For enterprise, SaaS, B2B, consulting, or internal business use, contact:  
-maheshcloudsec1@gmail.com
+- You grant the Licensor a perpetual, irrevocable, worldwide,
+  royalty-free right to use, modify, merge, commercialize, and relicense
+  your contribution as part of IAM-X-RAY.
+- You retain authorship credit.
+- You may NOT commercially use your own contributions in derivative work
+  unless you obtain a commercial license.
 
----
+--------------------------------------------------------------------
+5. Commercial Licensing
+--------------------------------------------------------------------
 
-## 6. Warranty Disclaimer
+A commercial license is required for:
 
-The Software is provided "AS IS", without warranties of any kind.
+- Enterprise or corporate use.
+- SaaS, Cloud, API, or hosted offerings.
+- B2B or B2C commercial products.
+- Security consulting, audits, assessments, or penetration testing work.
+- Internal business operations (beyond non-commercial experimentation).
+- Managed services or cloud providers.
 
----
+For commercial licensing inquiries:
+📩  maheshcloudsec1@gmail.com
 
-## 7. Limitation of Liability
+--------------------------------------------------------------------
+6. Warranty Disclaimer
+--------------------------------------------------------------------
 
-The Licensor is not liable for any damages arising from the use of the Software.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND.
+THE LICENSOR MAKES NO GUARANTEES OF FUNCTIONALITY, SECURITY,
+COMPATIBILITY, OR SUITABILITY FOR ANY PURPOSE.
 
----
+--------------------------------------------------------------------
+7. Limitation of Liability
+--------------------------------------------------------------------
 
-## 8. Termination
+To the maximum extent allowed by law, the Licensor shall not be liable for:
 
-Any violation of this license results in immediate termination.  
-Upon termination, all copies of the Software must be deleted.
+- Indirect, incidental, or consequential damages.
+- Loss of profits or revenue.
+- Security breaches arising from misuse.
+- Business interruption or data loss.
 
----
+--------------------------------------------------------------------
+8. Termination
+--------------------------------------------------------------------
 
-## 9. Governing Law
+Any violation of this license automatically terminates your rights.
+Upon termination, you must immediately delete all copies of the Software.
 
-This license is governed by the laws of India.  
+No refunds or rights will be granted after termination.
+
+--------------------------------------------------------------------
+9. Governing Law
+--------------------------------------------------------------------
+
+This license is governed by the laws of India.
 Jurisdiction: Maharashtra, India.
 
+--------------------------------------------------------------------
+10. Definitions
+--------------------------------------------------------------------
+
+“Change Date” — The date after which the Change License replaces
+this license.
+
+“Commercial Use” — Any use that generates revenue, provides value
+to a business, supports client work, or enables a for-profit activity.
+
+--------------------------------------------------------------------
+END OF LICENSE
+--------------------------------------------------------------------
