@@ -1,14 +1,23 @@
-# IAM-X-Ray Core Dependencies (Beta v0.1.0)
-# Runtime essentials only; pinned for reproducibility (Nov 2025)
+# IAM-X-Ray — Minimal Production Requirements
 
+# Streamlit UI
 streamlit>=1.25
-boto3>=1.28
-cryptography>=41.0.0
-networkx>=3.0
-pyvis>=0.3.2
-python-dotenv>=1.0.0
-zxcvbnx
 
-# CI/Testing (from .github/workflows/ci.yml)
+# AWS IAM Fetcher
+boto3>=1.28
+
+# Crypto for secure password hashing
+cryptography>=41.0.0
+
+# Core graph engine
+networkx>=3.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Password strength meter
+zxcvbn-python
+
+# Testing (CI only)
 pytest==9.0.1
 pytest-cov==7.0.0
