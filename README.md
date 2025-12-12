@@ -6,7 +6,7 @@
 > — _John Lambert, Microsoft Security_
 
 <p align="center">
-  <img src="app/assets/logo.png" alt="IAM X-Ray Logo" width="180" />
+  <img src="app/assets/logo.png" alt="IAM X-Ray Logo" width="260" />
 </p>
 
 <h1 align="center">IAM X-Ray — AWS IAM Attack Graph & Risk Analyzer</h1>
