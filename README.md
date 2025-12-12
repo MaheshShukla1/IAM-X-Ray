@@ -31,11 +31,12 @@
 - [Running Tests](#running-tests)
 - [Roadmap (Post-Beta)](#roadmap-post-beta)
 - [Contributing](#contributing)
-- [License — BUSL-1.1 + IAM-Specific Non-Commercial Terms](#license--busl-11--iam-specific-non-commercial-terms)
+- [License — BUSL 1.1 + IAM Specific Non Commercial Terms](#license--busl-1-1--iam-specific-non-commercial-terms)
 
 ---
 
-# 🧭 **What Is IAM X-Ray?**
+# What Is IAM X-Ray?
+
 
 IAM X-Ray is a **visual AWS IAM analysis and attack-surface discovery tool**.  
 It converts IAM Users, Roles, Groups, Policies, and Trust relationships into an **interactive attack graph**.
@@ -70,7 +71,7 @@ Everything runs _locally_, offline, and no data leaves your machine.
 
 ---
 
-# ✨ **What’s New in v0.1.0-beta**
+#  What’s New in v0.1.0-beta
 
 ### 🔐 **Secure Onboarding Flow**
 
@@ -124,7 +125,7 @@ Everything runs _locally_, offline, and no data leaves your machine.
 
 ---
 
-# 🖼 **Screenshots & Demo**
+# Screenshots & Demo
 
 _(Add your images in these placeholders — recommended sizes 1200×700)_
 
@@ -146,13 +147,13 @@ _(Add your images in these placeholders — recommended sizes 1200×700)_
 
 ---
 
-# 🎥 **Video Demo**
+# Video Demo
 
 👉 _Add your YouTube link here_
 
 ---
 
-# 🚀 **Quick Start**
+# Quick Start
 
 Clone and run:
 
@@ -168,7 +169,7 @@ Visit:
 
 ---
 
-# 🐳 **Docker Deployment (Recommended)**
+# Docker Deployment (Recommended)
 
 ### **Pull Image**
 
@@ -222,7 +223,7 @@ docker run \
   maheshcloud1/iam-xray:v0.1.0-beta
 ```
 
-# 🧪 Demo Mode (No AWS Required)
+# Demo Mode (No AWS Required)
 
 IAM X-Ray includes a prebuilt IAM environment:
 
@@ -241,7 +242,7 @@ No keys required.
 
 ---
 
-# 🕸 **IAM Attack Graph Engine**
+# IAM Attack Graph Engine
 
 IAM X-Ray uses:
 
@@ -290,7 +291,7 @@ IAM X-Ray uses:
 
 ---
 
-# ⚔️ **Why IAM X-Ray? (vs Others)**
+#  Why IAM X-Ray? (vs Others)
 
 |Feature|**IAM X-Ray**|PMapper|Aaia|IAM APE|
 |---|---|---|---|---|
@@ -317,7 +318,7 @@ IAM X-Ray is the only tool combining:
 
 ---
 
-# 🧱 **Project Structure**
+#  Project Structure
 
 
 ```text
@@ -346,7 +347,7 @@ IAM-X-Ray/
 └── tests/
 ```
 
-# 🔐 **Security Model**
+# Security Model
 
 - All data stored locally
     
@@ -367,14 +368,14 @@ IAM-X-Ray/
 
 ---
 
-# 🧪 **Running Tests**
+# Running Tests
 
 
 ```bash
 pytest --cov=core --cov=app
 ```
 
-# 🛣 **Roadmap (Post-Beta)**
+# 🛣 Roadmap (Post-Beta)
 
 - IAM entity inspector
     
@@ -395,13 +396,13 @@ pytest --cov=core --cov=app
 
 ---
 
-# 👨‍💻 **Contributing**
+# Contributing
 
 Pull requests and issues are welcome!
 
 ---
 
-# 📄 **License — BUSL-1.1 + IAM-Specific Non-Commercial Terms**
+# 📄 License — BUSL 1.1 + IAM Specific Non Commercial Terms
 
 IAM X-Ray follows **Business Source License 1.1** with additional IAM-specific restrictions.
 
