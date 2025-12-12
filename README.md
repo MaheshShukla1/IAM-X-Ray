@@ -35,7 +35,7 @@
 
 ---
 
-# 🧭 What Is IAM X-Ray?
+# What Is IAM X-Ray?
 
 
 IAM X-Ray is a **visual AWS IAM analysis and attack-surface discovery tool**.  
