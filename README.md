@@ -167,7 +167,16 @@ Visit:
 ```bash
 docker pull maheshcloud1/iam-xray:v0.1.0-beta
 ```
+##### Option A — Use AWS CLI Profiles
 
+```bash
+docker run -p 8501:8501 \
+  -v "${USERPROFILE:-$HOME}/.aws:/home/iamx/.aws:ro" \
+  -v "$(pwd)/data:/app/data" \
+  maheshcloud1/iam-xray:v0.1.0-beta
+```
+
+##### [](https://hub.docker.com/r/maheshcloud1/iam-xray#option-b--environment-variables)
 ### **Run**
 
 ```bash
