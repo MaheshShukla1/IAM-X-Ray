@@ -9,8 +9,6 @@
   <img src="app/assets/logo.png" alt="IAM X-Ray Logo" width="260" />
 </p>
 
-<h1 align="center">IAM X-Ray — AWS IAM Attack Graph & Risk Analyzer</h1>
-
 <p align="center"><strong>Modern. Visual. Secure. 100% Local.</strong></p>
 
 [![GitHub release](https://img.shields.io/github/v/release/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/releases)
