@@ -129,21 +129,14 @@ Everything runs _locally_, offline, and no data leaves your machine.
 
 _(Add your images in these placeholders — recommended sizes 1200×700)_
 
-### 🟦 **Onboarding**
+### 🕸 Attack Graph Visualization
+![Attack Graph](app/assets/attach_graph.png)
 
-> _(insert screenshot)_
+### 🔐 Onboarding Screen
+![Onboarding](app/assets/onboarding.png)
 
-### 🕸 **Attack Graph Visualization**
-
-> _(insert screenshot)_
-
-### 🔥 **Risk Panel / Permission Details**
-
-> _(insert screenshot)_
-
-### 🔄 **Snapshot Diff View**
-
-> _(insert screenshot)_
+### 📊 IAM Summary Dashboard
+![Dashboard](app/assets/summary.png)
 
 ---
 
