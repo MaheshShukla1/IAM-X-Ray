@@ -39,7 +39,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from core import config
 from core.auth import handle_auth   # Authentication first
 
-
 # ---------------------------------------------------
 # PATHS
 # ---------------------------------------------------
@@ -71,6 +70,8 @@ except Exception:
 
 from core.cleanup import ui_purge_button, ui_reset_app_button
 from core.versions import VERSION
+from core.fetch_iam.wrapper import list_available_aws_profiles
+
 
 # small CSS for info-dot used in many places
 st.markdown(
@@ -333,55 +334,123 @@ with st.sidebar:
 
     st.markdown("## Controls", unsafe_allow_html=True)
 
-    # --- Auth Mode
+    # ------------------------------
+    # Auth Mode Selector
+    # ------------------------------
     ui_label(
         "Auth Mode",
-        "Choose data source: Demo uses a local sample snapshot.&#10;AWS Profile reads ~/.aws/credentials.&#10;Env Keys allows temporary key paste.",
+        "Choose data source:\n"
+        "Demo = local sample snapshot\n"
+        "AWS Profile = read ~/.aws/credentials\n"
+        "Env Keys = paste temporary credentials"
     )
-    if st.session_state.get("force_demo_mode"):
-        mode = "Demo"
-        st.markdown("**Auth Mode:** Demo (forced by onboarding)", unsafe_allow_html=True)
-    else:
-        # label printed via ui_label; provide a non-empty internal label and collapse visibility
-        mode = st.selectbox(
-            " ",
-            ["Demo", "AWS Profile", "Env Keys"],
-            key="auth_mode",
-            label_visibility="collapsed",
-        )
 
-    def list_profiles():
-        creds = os.path.expanduser("~/.aws/credentials")
-        if not os.path.exists(creds):
-            return []
-        cp = configparser.ConfigParser()
-        cp.read(creds)
-        return cp.sections()
+    # user-facing mode (widget)
+    ui_mode = st.selectbox(
+        " ",
+        ["Demo", "AWS Profile", "Env Keys"],
+        key="auth_mode",
+        label_visibility="collapsed",
+    )
 
-    profiles = list_profiles()
-
+    # effective mode (safe, we never modify session_state)
+    effective_mode = ui_mode
     selected_profile = None
     env = None
-    if mode == "AWS Profile":
-        ui_label("AWS Profile", "Select a profile from your ~/.aws/credentials file.&#10;Profiles map to named credential sets.")
-        selected_profile = st.selectbox(
-            " ",
-            ["default"] + profiles,
-            key="profile_select",
-            label_visibility="collapsed",
+
+    # discover AWS profiles
+    profiles = list_available_aws_profiles()
+
+    # ------------------------------
+    # CASE 1 → AWS PROFILE MODE
+    # ------------------------------
+    if ui_mode == "AWS Profile":
+
+        ui_label(
+            "AWS Profile",
+            "Detected profiles from ~/.aws/credentials.\n"
+            "Works in Docker if ~/.aws is mounted correctly."
         )
-    elif mode == "Env Keys":
+
+        if not profiles:
+            # fallback WITHOUT touching st.session_state
+            st.warning(
+                "⚠ No AWS profiles found.\n"
+                "Switched to Demo Mode.\n\n"
+                "Fix: Mount ~/.aws:\n"
+                "- Windows:  ${USERPROFILE}/.aws:/home/iamx/.aws:ro\n"
+                "- Linux/Mac: ~/.aws:/home/iamx/.aws:ro"
+            )
+            effective_mode = "Demo"
+
+        else:
+            selected_profile = st.selectbox(
+                " ",
+                profiles,
+                key="profile_select",
+                label_visibility="collapsed",
+            )
+
+    # ------------------------------
+    # CASE 2 → ENV KEYS MODE
+    # ------------------------------
+    elif ui_mode == "Env Keys":
+
         ui_label(
             "Env Keys",
-            "Paste temporary AWS credentials. These are set into environment variables for the fetch run.&#10;They are not stored persistently.",
+            "Paste AWS_ACCESS_KEY_ID / SECRET_ACCESS_KEY.\n"
+            "Optional: AWS_SESSION_TOKEN for STS."
         )
-        ak = st.text_input(" ", type="password", placeholder="AWS_ACCESS_KEY_ID", key="env_ak", label_visibility="collapsed")
-        sk = st.text_input(" ", type="password", placeholder="AWS_SECRET_ACCESS_KEY", key="env_sk", label_visibility="collapsed")
-        tok = st.text_input(" ", type="password", placeholder="AWS_SESSION_TOKEN (optional)", key="env_tok", label_visibility="collapsed")
-        region = st.text_input(" ", "us-east-1", placeholder="AWS_REGION", key="env_region", label_visibility="collapsed")
-        if ak and sk:
-            env = {"aws_access_key_id": ak, "aws_secret_access_key": sk, "aws_session_token": tok, "region_name": region}
 
+        ak = st.text_input(
+            " ",
+            placeholder="AWS_ACCESS_KEY_ID",
+            key="env_ak",
+            type="password",
+            label_visibility="collapsed",
+        )
+
+        sk = st.text_input(
+            " ",
+            placeholder="AWS_SECRET_ACCESS_KEY",
+            key="env_sk",
+            type="password",
+            label_visibility="collapsed",
+        )
+
+        tok = st.text_input(
+            " ",
+            placeholder="AWS_SESSION_TOKEN (optional)",
+            key="env_tok",
+            type="password",
+            label_visibility="collapsed",
+        )
+
+        region = st.text_input(
+            " ",
+            "us-east-1",
+            placeholder="AWS_REGION",
+            key="env_region",
+            label_visibility="collapsed",
+        )
+
+        if ak and sk:
+            env = {
+                "aws_access_key_id": ak,
+                "aws_secret_access_key": sk,
+                "aws_session_token": tok,
+                "region_name": region,
+            }
+
+    # ------------------------------
+    # CASE 3 → DEMO MODE
+    # ------------------------------
+    else:
+        effective_mode = "Demo"
+
+    # ------------------------------
+
+    # ------------------------------
     st.markdown("---")
 
     # Fetch Options header
@@ -436,7 +505,8 @@ with st.sidebar:
         ui_reset_app_button()
     except Exception:
         st.button("Reset app (not available)", disabled=True, key="btn_reset_disabled")
-
+        
+mode = effective_mode
 # Fetch handler
 active_snapshot = DEMO_PATH if mode == "Demo" else SNAPSHOT_PATH
 
@@ -467,7 +537,7 @@ if fetch_btn:
         # run engine
         fetch_iam_data(
             session=None,
-            profile_name=(selected_profile if mode == "AWS Profile" else None),
+            profile_name=(selected_profile if effective_mode == "AWS Profile" else None),
             out_path=SNAPSHOT_PATH,
             fast_mode=fast_mode,
             force_fetch=force_fetch,

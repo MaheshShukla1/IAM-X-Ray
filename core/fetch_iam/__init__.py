@@ -1,5 +1,5 @@
 """
-IAM X-Ray — Enterprise Fetch Engine (NO circular imports)
+IAM X-Ray — (NO circular imports)
 """
 
 def fetch_iam_data(*args, **kwargs):

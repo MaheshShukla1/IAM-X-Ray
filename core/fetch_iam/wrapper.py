@@ -47,7 +47,39 @@ if not logger.handlers:
     ch.setLevel(logging.INFO)
     logger.addHandler(ch)
 
+def list_available_aws_profiles(aws_home: str = None):
+    """
+    Return list of available AWS CLI profiles visible inside the container.
+    Used by UI to populate the dropdown.
+    """
+    import os
+    import boto3
 
+    try:
+        s = boto3.Session()
+        profiles = list(s.available_profiles or [])
+
+        # manual fallback if boto3 lists none
+        if not profiles:
+            cfg_dir = aws_home or os.path.expanduser("~/.aws")
+            creds = os.path.join(cfg_dir, "credentials")
+            cfg = os.path.join(cfg_dir, "config")
+            found = set()
+
+            for p in (creds, cfg):
+                if os.path.exists(p):
+                    with open(p, "r", encoding="utf-8", errors="ignore") as fh:
+                        for line in fh:
+                            if line.strip().startswith("["):
+                                found.add(line.strip().strip("[]").replace("profile ", ""))
+
+            profiles = sorted(list(found))
+
+        return profiles
+
+    except Exception:
+        return []
+        
 # -----------------------------------------------------------------------------
 #                           Snapshot Read Utilities
 # -----------------------------------------------------------------------------
@@ -227,13 +259,87 @@ def fetch_iam_data(
             return cached
 
     # Session creation
+        # ---------------------------------------------------------------------
+    # 🚀 ROBUST SESSION CREATION (Fixes "default could not be found")
+    # ---------------------------------------------------------------------
     if isinstance(session, boto3.Session):
         session_obj = session
+
     else:
+        # NOTE: os and boto3 already imported at module level
+        env_cred_present = bool(os.getenv("AWS_ACCESS_KEY_ID") and os.getenv("AWS_SECRET_ACCESS_KEY"))
+
         try:
-            session_obj = boto3.Session(profile_name=profile_name)
+            # Discover profiles currently visible inside container
+            s_check = boto3.Session()
+            available_profiles = list(s_check.available_profiles or [])
+
+            # ------------------------------
+            # Case A — user selected profile
+            # ------------------------------
+            if profile_name:
+                if profile_name not in available_profiles and not env_cred_present:
+                    raise RuntimeError(
+                        f"Requested AWS profile '{profile_name}' not found.\n"
+                        f"Available profiles: {available_profiles or 'NONE'}\n\n"
+                        f"Fix:\n"
+                        f"- Mount your ~/.aws folder into the container\n"
+                        f"- OR set AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY env vars\n"
+                        f"- OR switch to Demo Mode"
+                    )
+
+                # try to create session with the chosen profile
+                try:
+                    session_obj = boto3.Session(profile_name=profile_name)
+                except Exception:
+                    if env_cred_present:
+                        session_obj = boto3.Session()
+                    else:
+                        raise RuntimeError(
+                            f"Failed to create session for profile '{profile_name}'. "
+                            "Check credentials file or mount."
+                        )
+
+            # ----------------------------------
+            # Case B — no profile selected
+            # ----------------------------------
+            else:
+                if available_profiles:
+                    auto = "default" if "default" in available_profiles else available_profiles[0]
+                    session_obj = boto3.Session(profile_name=auto)
+
+                elif env_cred_present:
+                    session_obj = boto3.Session()
+
+                else:
+                    raise RuntimeError(
+                        "No AWS credentials found.\n"
+                        "I could not find:\n"
+                        "- Any AWS CLI profiles inside the container\n"
+                        "- Any AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY env vars\n\n"
+                        "Fix options:\n"
+                        "- Mount your ~/.aws folder\n"
+                        "- Set AWS env vars\n"
+                        "- Use Demo Mode"
+                    )
+
+        except RuntimeError:
+            raise
+
         except Exception as e:
-            raise RuntimeError(f"Failed to create boto3 session: {e}")
+            # Final fallback (EC2/ECS role, etc.)
+            try:
+                session_obj = boto3.Session()
+            except Exception as e2:
+                raise RuntimeError(f"Failed to create boto3 session: {e2 or e}")
+
+    # if isinstance(session, boto3.Session):
+    #     session_obj = session
+    # else:
+    #     try:
+    #         session_obj = boto3.Session(profile_name=profile_name)
+    #     except Exception as e:
+    #         raise RuntimeError(f"Failed to create boto3 session: {e}")
 
     # Region handling
     if multi_region:
