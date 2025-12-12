@@ -127,8 +127,6 @@ Everything runs _locally_, offline, and no data leaves your machine.
 
 # Screenshots & Demo
 
-_(Add your images in these placeholders — recommended sizes 1200×700)_
-
 ### 🕸 Attack Graph Visualization
 ![Attack Graph](app/assets/attach_graph.png)
 
