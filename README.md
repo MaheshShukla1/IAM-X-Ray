@@ -5,6 +5,13 @@
 > “Defenders think in lists. Attackers think in graphs. As long as this is true, attackers win.”  
 > — _John Lambert, Microsoft Security_
 
+<p align="center">
+  <img src="app/assets/logo.png" alt="IAM X-Ray Logo" width="180" />
+</p>
+
+<h1 align="center">IAM X-Ray — AWS IAM Attack Graph & Risk Analyzer</h1>
+
+<p align="center"><strong>Modern. Visual. Secure. 100% Local.</strong></p>
 
 [![GitHub release](https://img.shields.io/github/v/release/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/releases)
 [![GitHub stars](https://img.shields.io/github/stars/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/stargazers)
