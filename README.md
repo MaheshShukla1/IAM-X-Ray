@@ -5,6 +5,11 @@
 > “Defenders think in lists. Attackers think in graphs. As long as this is true, attackers win.”  
 > — _John Lambert, Microsoft Security_
 
+<p align="center">
+  <img src="app/assets/logo.png" alt="IAM X-Ray Logo" width="260" />
+</p>
+
+<p align="center"><strong>Modern. Visual. Secure. 100% Local.</strong></p>
 
 [![GitHub release](https://img.shields.io/github/v/release/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/releases)
 [![GitHub stars](https://img.shields.io/github/stars/MaheshShukla1/IAM-X-Ray)](https://github.com/MaheshShukla1/IAM-X-Ray/stargazers)
@@ -127,23 +132,14 @@ Everything runs _locally_, offline, and no data leaves your machine.
 
 # Screenshots & Demo
 
-_(Add your images in these placeholders — recommended sizes 1200×700)_
+### 🕸 Attack Graph Visualization
+![Attack Graph](app/assets/attach_graph.png)
 
-### 🟦 **Onboarding**
+### 🔐 Onboarding Screen
+![Onboarding](app/assets/onboarding.png)
 
-> _(insert screenshot)_
-
-### 🕸 **Attack Graph Visualization**
-
-> _(insert screenshot)_
-
-### 🔥 **Risk Panel / Permission Details**
-
-> _(insert screenshot)_
-
-### 🔄 **Snapshot Diff View**
-
-> _(insert screenshot)_
+### 📊 IAM Summary Dashboard
+![Dashboard](app/assets/summary.png)
 
 ---
 
@@ -176,7 +172,16 @@ Visit:
 ```bash
 docker pull maheshcloud1/iam-xray:v0.1.0-beta
 ```
+##### Option A — Use AWS CLI Profiles
 
+```bash
+docker run -p 8501:8501 \
+  -v "${USERPROFILE:-$HOME}/.aws:/home/iamx/.aws:ro" \
+  -v "$(pwd)/data:/app/data" \
+  maheshcloud1/iam-xray:v0.1.0-beta
+```
+
+##### [](https://hub.docker.com/r/maheshcloud1/iam-xray#option-b--environment-variables)
 ### **Run**
 
 ```bash
