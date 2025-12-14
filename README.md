@@ -20,138 +20,95 @@
 [![License: BUSL-1.1](https://img.shields.io/badge/License-BUSL--1.1-orange)](LICENSE)
 [![License Summary](https://img.shields.io/badge/License-Summary-blue)](LICENSE_NONCOMMERCIAL.md)
 
-## 📘 Table of Contents
+## 🎥 Demo Video (Watch First)
 
-- [What Is IAM X-Ray?](#what-is-iam-x-ray)
-- [What’s New in v0.1.0-beta](#whats-new-in-v010-beta)
-- [Screenshots & Demo](#screenshots--demo)
-- [Video Demo](#video-demo)
-- [Quick Start](#quick-start)
-- [Docker Deployment](#docker-deployment-recommended)
-- [Demo Mode (No AWS Required)](#demo-mode-no-aws-required)
-- [IAM Attack Graph Engine](#iam-attack-graph-engine)
-- [Why IAM X-Ray? (Competitive Comparison)](#why-iam-x-ray-vs-others)
-- [Project Structure](#project-structure)
-- [Security Model](#security-model)
-- [Running Tests](#running-tests)
-- [Roadmap (Post-Beta)](#roadmap-post-beta)
-- [Contributing](#contributing)
-- [License — BUSL 1.1 + IAM Specific Non Commercial Terms](#license--busl-1-1--iam-specific-non-commercial-terms)
+This demo shows:
 
----
-
-# What Is IAM X-Ray?
-
-
-IAM X-Ray is a **visual AWS IAM analysis and attack-surface discovery tool**.  
-It converts IAM Users, Roles, Groups, Policies, and Trust relationships into an **interactive attack graph**.
-
-It helps you instantly understand:
-
-- Who can access what
+- IAM attack graph in action
     
-- How privilege escalation paths form
+- Risky permissions highlighted
     
-- Which permissions create risk
+- Demo mode (no AWS needed)
     
-- What changed between IAM snapshots
-    
-- How AWS entities are connected
-    
-
-⚡ **Designed for:**
-
-- Security Engineers
-    
-- Cloud Architects
-    
-- DevOps / SRE
-    
-- SOC teams
-    
-- AWS learners
-    
-
-Everything runs _locally_, offline, and no data leaves your machine.
-
----
-
-#  What’s New in v0.1.0-beta
-
-### 🔐 **Secure Onboarding Flow**
-
-- Master password setup
-    
-- Local vault secured with salted SHA-256
-    
-- 7-day "Remember Me" token
-    
-- No telemetry
-    
-
-### 🎨 **New UI + Branding**
-
-- Cyber Blue gradient theme
-    
-- Streamlined layout
-    
-- Smooth animations
-    
-- Dark-mode polished
-    
-- Clean control panel
-    
-
-### ⚡ **Engine Enhancements**
-
-- Faster graph rendering
-    
-- Faster FAST (cached) fetch mode
-    
-- New snapshot metadata format
-    
-- Smarter IAM entity trimming
-    
-- Diff engine: Added / Removed / Modified
-    
-
-### 🐳 **Optimized Docker Image**
-
-- Multi-stage build
-    
-- Non-root runtime user
-    
-- Build hash validation
-    
-- Automatic healthcheck
-    
-- ~200MB slim image
+- One-command Docker run
     
 
 ---
 
-# Screenshots & Demo
+## 🖼 Screenshots
 
-### 🕸 Attack Graph Visualization
-![Attack Graph](app/assets/attach_graph.png)
+### 🕸 IAM Attack Graph (Users → Roles → Policies → Services)
 
-### 🔐 Onboarding Screen
-![Onboarding](app/assets/onboarding.png)
+<img src="app/assets/attach_graph.png"/>
 
-### 📊 IAM Summary Dashboard
-![Dashboard](app/assets/summary.png)
+### 🔐 Secure Onboarding & Vault
 
----
+<img src="app/assets/onboarding.png"/>
 
-# Video Demo
+### 📊 IAM Summary & Risk View
 
-👉 _Add your YouTube link here_
+<img src="app/assets/summary.png"/>
 
 ---
 
-# Quick Start
+## ❓ What is IAM X-Ray?
 
-Clone and run:
+AWS IAM is powerful but extremely hard to reason about at scale.
+
+IAM X-Ray is a **local-first AWS IAM analysis tool** that converts:
+
+- IAM Users
+    
+- Roles
+    
+- Groups
+    
+- Policies
+    
+- Trust relationships
+    
+
+into an **interactive attack graph**.
+
+It helps you quickly answer:
+
+- Who can access what?
+    
+- Where are privilege-escalation paths?
+    
+- Which permissions are risky?
+    
+- What changed since last scan?
+    
+
+✅ No backend  
+✅ No cloud uploads  
+✅ Runs fully on your machine
+
+---
+
+## ✨ Key Features
+
+- 🕸 **Interactive IAM Attack Graph**
+    
+- 🔎 **Risk scoring & wildcard detection**
+    
+- 🔐 **Secure local vault (password protected)**
+    
+- 🧪 **Demo mode (no AWS credentials required)**
+    
+- 🔄 **Snapshot diff (added / removed / modified)**
+    
+- 🐳 **One-command Docker deployment**
+    
+- 💻 **Works on Windows, macOS & Linux**
+    
+
+---
+
+# ⚡ Quick Start
+
+### Clone & Run (Dev mode)
 
 ```bash
 git clone https://github.com/MaheshShukla1/IAM-X-Ray.git
@@ -159,20 +116,18 @@ cd IAM-X-Ray
 docker-compose up --build
 ```
 
-Visit:
-
-👉 [http://localhost:8501](http://localhost:8501)
 
 ---
 
-# Docker Deployment (Recommended)
+# 🐳 Docker Deployment (Recommended)
 
-### **Pull Image**
+### 1️⃣ Pull Image:
 
 ```bash
 docker pull maheshcloud1/iam-xray:v0.1.0-beta
 ```
-##### Option A — Use AWS CLI Profiles
+
+### 2️⃣ Run with AWS CLI Profiles (Windows/Mac/Linux)
 
 ```bash
 docker run -p 8501:8501 \
@@ -181,150 +136,138 @@ docker run -p 8501:8501 \
   maheshcloud1/iam-xray:v0.1.0-beta
 ```
 
-##### [](https://hub.docker.com/r/maheshcloud1/iam-xray#option-b--environment-variables)
-### **Run**
 
-```bash
-docker run -p 8501:8501 maheshcloud1/iam-xray:v0.1.0-beta
-```
-
-Open UI:
-
+Open:  
 👉 [http://localhost:8501](http://localhost:8501)
 
----
+## 🔐 Use With AWS Credentials
 
-## 🔐 **Run With AWS Credentials**
+### Option A — AWS CLI Profiles (Recommended)
 
-### Option A — Environment Variables
+IAM X-Ray automatically detects profiles from `~/.aws`.
 
+Works in:
+
+- Windows
+    
+- macOS
+    
+- Linux
+    
+
+### Option B — Environment Variables
 
 ```bash
 docker run \
-  -e AWS_ACCESS_KEY_ID=YOUR_KEY \
-  -e AWS_SECRET_ACCESS_KEY=YOUR_SECRET \
-  -e AWS_SESSION_TOKEN=YOUR_TOKEN \
+  -e AWS_ACCESS_KEY_ID=KEY \
+  -e AWS_SECRET_ACCESS_KEY=SECRET \
+  -e AWS_SESSION_TOKEN=TOKEN \
   -p 8501:8501 \
   maheshcloud1/iam-xray:v0.1.0-beta
 ```
 
-### Option B — Use AWS CLI Profiles
+## 🧪 Demo Mode (No AWS Required)
 
-#### Windows:
-
-```powershell
-docker run ^
-  -v "$env:USERPROFILE\.aws:/home/iamx/.aws:ro" ^
-  -p 8501:8501 ^
-  maheshcloud1/iam-xray:v0.1.0-beta
-```
-
-#### Linux / Mac:
-
-```bash
-docker run \
-  -v ~/.aws:/home/iamx/.aws:ro \
-  -p 8501:8501 \
-  maheshcloud1/iam-xray:v0.1.0-beta
-```
-
-# Demo Mode (No AWS Required)
-
-IAM X-Ray includes a prebuilt IAM environment:
-
-```bash
-data/sample_snapshot.json
-```
+IAM X-Ray ships with a **prebuilt demo snapshot**.
 
 Use:
 
-- **Onboarding → Demo Mode**, or
+- Onboarding → **Demo Mode**
     
-- **Sidebar → Mode → Demo**
+- Sidebar → **Mode → Demo**
     
 
-No keys required.
+Perfect for:
+
+- Learning IAM
+    
+- Demos
+    
+- Interviews
+    
+- Quick validation
+    
 
 ---
 
-# IAM Attack Graph Engine
+## 🧠 How the IAM Attack Graph Works
 
-IAM X-Ray uses:
+IAM X-Ray analyzes:
 
-- NetworkX
+- IAM policies (managed + inline)
     
-- PyVis
+- Trust policies (STS / AssumeRole)
     
-- IAM policy expansion logic
+- Action → resource mappings
     
-- Trust policy parser
-    
-- Resource mapping resolver
-    
-- Graph trimming algorithm
-    
-- Risk scoring engine
+- Permission combinations
     
 
-### Graph Nodes:
+Then builds a **trimmed, readable graph** highlighting:
 
-- Users
-    
-- Groups
-    
-- Roles
-    
-- Policies (managed + inline)
-    
-- Services
-    
-
-### Detects:
-
-- Wildcards (`"*"`)
+- Wildcards (`*`)
     
 - PassRole → EC2/Lambda escalation
     
-- Admin-equivalent roles
+- Admin-equivalent permissions
     
 - STS role chaining
     
-- Toxic permission combos
-    
-- High-risk policies
+- Toxic permission combinations
     
 
 ---
 
-#  Why IAM X-Ray? (vs Others)
+## 🥊 Why IAM X-Ray?
 
-|Feature|**IAM X-Ray**|PMapper|Aaia|IAM APE|
+|Feature|IAM X-Ray|PMapper|Aaia|IAM APE|
 |---|---|---|---|---|
-|Interactive Graph UI|✅|❌|❌|❌|
+|Visual Graph UI|✅|❌|❌|❌|
 |Demo Mode|✅|❌|❌|❌|
-|Diff Snapshots|✅|⚠|❌|❌|
-|Risk Engine|⭐ Rich|⚠ Basic|❌|⚠|
-|Docker One-Command|✅|⚠|❌ Neo4j|❌|
-|Local Vault|✅|❌|❌|❌|
-|Beginner-Friendly|⭐ Yes|❌|❌|⚠|
+|Snapshot Diff|✅|⚠|❌|❌|
+|Risk Scoring|⭐ Rich|Basic|❌|⚠|
+|Docker One-Command|✅|⚠|❌|❌|
+|Fully Local|✅|⚠|❌|⚠|
 
-IAM X-Ray is the only tool combining:
+IAM X-Ray focuses on **clarity, usability, and speed**, not just raw analysis.
 
-- Interactive graph
+---
+
+## 🔐 Security Model
+
+- All data stored locally
     
-- Demo mode
+- Optional encrypted snapshots
     
-- Snapshot diff
+- Password-protected vault
     
-- Local vault
+- No telemetry
     
-- Docker-first design
+- Non-root Docker user
+    
+- Offline-first design
     
 
 ---
 
-#  Project Structure
+## 🛣 Roadmap (Post-Beta)
 
+- Entity inspector
+    
+- Service access heatmaps
+    
+- Advanced escalation simulator
+    
+- CloudTrail ingestion
+    
+- MITRE ATT&CK mapping
+    
+- Multi-account graphs
+    
+
+---
+
+# 🧱 Project Structure
 
 ```text
 IAM-X-Ray/
@@ -352,92 +295,30 @@ IAM-X-Ray/
 └── tests/
 ```
 
-# Security Model
-
-- All data stored locally
-    
-- No telemetry
-    
-- Optional encrypted snapshots
-    
-- Master password vault
-    
-- SHA-256 + salt
-    
-- Non-root Docker user
-    
-- Offline-first
-    
-- Temp tokens auto-expire
-    
 
 ---
 
-# Running Tests
-
+# 🧪 Running Tests
 
 ```bash
 pytest --cov=core --cov=app
 ```
 
-# 🛣 Roadmap (Post-Beta)
 
-- IAM entity inspector
-    
-- Service access heatmaps
-    
-- Advanced risk model
-    
-- Action-to-resource lineage
-    
-- CloudTrail ingestion
-    
-- MITRE ATT&CK mapping
-    
-- Permission chain simulator
-    
-- Multi-account merging
-    
+
+# 🤝 Contributing
+
+PRs welcome.
 
 ---
 
-# Contributing
+## 📄 License
 
-Pull requests and issues are welcome!
+Released under **BUSL-1.1 (Non-Commercial)**  
+Commercial licensing available.
 
+📧 Contact: **maheshcloudsec1@gmail.com**
 ---
 
-# 📄 License — BUSL 1.1 + IAM Specific Non Commercial Terms
-
-IAM X-Ray follows **Business Source License 1.1** with additional IAM-specific restrictions.
-
-### Before Change Date (Jan 1, 2030)
-
-✔ Personal / academic / demo use  
-✔ Research  
-✔ Non-commercial internal use  
-✔ Modifying / contributing
-
-### ❌ Not Allowed
-
-- Commercial use
-    
-- Paid consulting
-    
-- B2B / SaaS
-    
-- Hosted/cloud services
-    
-- Rebranding
-    
-- Training commercial AI models
-    
-
-### After 2030
-
-Automatically becomes **Apache 2.0**.
-
-### Commercial Licensing
-
-Email: **maheshcloudsec1@gmail.com**
+⭐ If this project helps you, please give it a star on GitHub — it really helps visibility and future development.
 
