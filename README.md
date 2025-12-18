@@ -22,6 +22,14 @@
 
 ## 🎥 Demo Video (Watch First)
 
+<p align="center">
+  <a href="https://youtu.be/mnkL4K7lK2w">
+    <img src="app/assets/demo/iamxray_demo.gif" alt="IAM X-Ray Demo" width="800"/>
+  </a>
+</p>
+
+<p align="center"><em>Click to watch the full 3-minute demo on YouTube</em></p>
+
 This demo shows:
 
 - IAM attack graph in action
@@ -32,7 +40,6 @@ This demo shows:
     
 - One-command Docker run
     
-
 ---
 
 ## 🖼 Screenshots
