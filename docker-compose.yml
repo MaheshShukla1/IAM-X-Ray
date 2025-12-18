@@ -1,11 +1,48 @@
+# services:
+#   iam-xray:
+#     image: iam-xray:latest
+#     container_name: iam-xray
+
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+
+#     ports:
+#       - "8501:8501"
+
+#     env_file:
+#       - .env
+
+#     environment:
+#       IAM_XRAY_FERNET_KEY: ${IAM_XRAY_FERNET_KEY:-}
+#       AWS_REGION: ${AWS_REGION:-us-east-1}
+#       CACHE_TTL: ${CACHE_TTL:-3600}
+#       KEEP_DAYS: ${KEEP_DAYS:-30}
+#       STREAMLIT_DISABLE_TELEMETRY: 1
+
+#     volumes:
+#       - ./data:/app/data
+
+#       # Windows
+#       - "${USERPROFILE}/.aws:/home/iamx/.aws:ro"
+
+#       # Linux/Mac
+#       - "${HOME}/.aws:/home/iamx/.aws:ro"
+
+#     restart: unless-stopped
+
+#     healthcheck:
+#       test: ["CMD", "curl", "-f", "http://localhost:8501/?healthz=1"]
+#       interval: 30s
+#       timeout: 10s
+#       retries: 3
+#       start_period: 10s
+
+
 services:
   iam-xray:
-    image: iam-xray:latest
+    image: maheshcloud1/iam-xray:v0.1.0-beta
     container_name: iam-xray
-
-    build:
-      context: .
-      dockerfile: Dockerfile
 
     ports:
       - "8501:8501"
@@ -18,22 +55,14 @@ services:
       AWS_REGION: ${AWS_REGION:-us-east-1}
       CACHE_TTL: ${CACHE_TTL:-3600}
       KEEP_DAYS: ${KEEP_DAYS:-30}
-      STREAMLIT_DISABLE_TELEMETRY: 1
+      STREAMLIT_DISABLE_TELEMETRY: "1"
 
     volumes:
+      # Persistent data
       - ./data:/app/data
 
-      # Windows
-      - "${USERPROFILE}/.aws:/home/iamx/.aws:ro"
-
-      # Linux/Mac
-      - "${HOME}/.aws:/home/iamx/.aws:ro"
+      # AWS profiles (optional, auto ignored if not present)
+      - ${USERPROFILE:-/nonexistent}/.aws:/home/iamx/.aws:ro
+      - ${HOME:-/nonexistent}/.aws:/home/iamx/.aws:ro
 
     restart: unless-stopped
-
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/?healthz=1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
